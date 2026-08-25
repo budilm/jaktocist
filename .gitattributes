@@ -1,0 +1,5 @@
+# Normalize text files to LF in the repository — GitHub Pages serves them as-is.
+* text=auto eol=lf
+
+# Binary assets: never touch.
+*.png binary
