@@ -3,7 +3,7 @@
 Interaktivní srovnávací časová osa životních drah dvanácti osobností české politiky.
 Statická stránka bez závislostí a bez build kroku — jeden soubor `index.html`.
 
-**Živá verze:** https://jaktocist.cz
+**Živá verze:** https://budilm.github.io/jaktocist/
 
 ## Co stránka umí
 
@@ -22,26 +22,37 @@ index.html          celá aplikace (HTML + CSS + JS + obsah článků)
 404.html            chybová stránka
 robots.txt          povolení indexace + odkaz na sitemapu
 sitemap.xml         mapa webu
-CNAME               vlastní doména pro GitHub Pages
 favicon.svg         ikona
 apple-touch-icon.png
 og-image.png        náhled pro sociální sítě (1200×630)
 .nojekyll           vypnutí Jekyllu na GitHub Pages
+.gitattributes      normalizace konců řádků (LF), PNG jako binární
 ```
 
 ## Nasazení na GitHub Pages
 
-1. Nahrát obsah tohoto adresáře do kořene repozitáře.
+Stránka běží jako *project page* na adrese `https://budilm.github.io/jaktocist/`.
+
+1. Obsah tohoto adresáře je v kořeni repozitáře `budilm/jaktocist`, větev `main`.
 2. **Settings → Pages → Source:** Deploy from a branch, větev `main`, složka `/ (root)`.
-3. **Settings → Pages → Custom domain:** `jaktocist.cz`, zaškrtnout *Enforce HTTPS*.
-4. U registrátora domény nastavit DNS:
+
+## Přechod na vlastní doménu
+
+Stránka je zatím bez vlastní domény. Až doména bude registrovaná:
+
+1. Do kořene přidat soubor `CNAME` s jediným řádkem — názvem domény.
+2. **Settings → Pages → Custom domain:** vyplnit doménu, zaškrtnout *Enforce HTTPS*.
+3. U registrátora domény nastavit DNS:
    - `A` záznamy pro kořen na `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-   - `CNAME` pro `www` na `<uzivatel>.github.io`
+   - `CNAME` pro `www` na `budilm.github.io`
+4. Přepsat adresu na těchto místech:
+   - `robots.txt` — odkaz na sitemapu
+   - `sitemap.xml` — `<loc>`
+   - `index.html` — canonical, og:url, og:image, twitter:image, JSON-LD
+   - `404.html` — `href="/jaktocist/…"` zkrátit na `href="/…"`
 
-## Změna domény
-
-Adresa je na čtyřech místech: `CNAME`, `robots.txt`, `sitemap.xml` a v hlavičce
-`index.html` (canonical, og:url, og:image, JSON-LD). Nahradit `jaktocist.cz` novou doménou.
+Poslední bod platí jen pro vlastní doménu: na project page je stránka v podadresáři
+`/jaktocist/`, na vlastní doméně bude v kořeni.
 
 ## Přidání další osobnosti
 

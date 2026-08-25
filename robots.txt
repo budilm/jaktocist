@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://jaktocist.cz/sitemap.xml
+Sitemap: https://budilm.github.io/jaktocist/sitemap.xml
