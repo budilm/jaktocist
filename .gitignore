@@ -1,0 +1,4 @@
+# Incoming files exported from a Claude chat, staged before being merged in.
+# Dated folders in YYMMDD form, plus the raw download archive.
+[0-9][0-9][0-9][0-9][0-9][0-9]/
+*.zip

@@ -1,15 +1,15 @@
 # Paralelní životy
 
-Interaktivní srovnávací časová osa životních drah dvanácti osobností české politiky.
+Interaktivní srovnávací časová osa životních drah patnácti osobností české politiky.
 Statická stránka bez závislostí a bez build kroku — jeden soubor `index.html`.
 
 **Živá verze:** https://budilm.github.io/jaktocist/
 
 ## Co stránka umí
 
-- výběr jedné až dvanácti osobností, osa se rozvržení přizpůsobí
+- výběr jedné až patnácti osobností, osa se rozvržení přizpůsobí
 - centrální chronologická osa s ročníky, po stranách dráhy vybraných osob
-- ke každé události rozklikávací článek (celkem 100 článků)
+- ke každé události rozklikávací článek (celkem 128 článků)
 - průsečíky — události s pevným obsazením, kde se dráhy protínají
 - srovnávací matice profilů v pěti tématech
 - přepínač Detail / Přehled
