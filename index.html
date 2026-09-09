@@ -7,17 +7,17 @@
 <meta name="description" content="Interaktivní srovnání životních drah sedmnácti osobností české politiky. Vyberte jedno nebo více jmen, porovnejte jejich dráhy rok po roce a otevřete si ke každé ze 144 událostí podrobný článek s fakty i argumenty všech stran.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="keywords" content="Václav Klaus, Miloš Zeman, Petr Pavel, Karel Řehka, Andrej Babiš, Alena Schillerová, Petr Fiala, Vít Rakušan, Tomio Okamura, Jindřich Rajchl, Filip Turek, Petr Macinka, Eva Decroix, Oto Klempíř, Taťána Malá, Natálie Vachatová, Tünde Bartha">
-<link rel="canonical" href="https://budilm.github.io/jaktocist/">
+<link rel="canonical" href="https://jaktocist.cz/">
 <meta name="theme-color" content="#F1EFE9">
 <meta name="color-scheme" content="light">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Paralelní životy">
 <meta property="og:locale" content="cs_CZ">
-<meta property="og:url" content="https://budilm.github.io/jaktocist/">
+<meta property="og:url" content="https://jaktocist.cz/">
 <meta property="og:title" content="Paralelní životy — srovnávací časová osa české politiky">
 <meta property="og:description" content="Interaktivní srovnání životních drah sedmnácti osobností české politiky. Vyberte jedno nebo více jmen, porovnejte jejich dráhy rok po roce a otevřete si ke každé ze 144 událostí podrobný článek s fakty i argumenty všech stran.">
-<meta property="og:image" content="https://budilm.github.io/jaktocist/og-image.png">
+<meta property="og:image" content="https://jaktocist.cz/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Paralelní životy — srovnávací časová osa české politiky">
@@ -25,7 +25,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Paralelní životy — srovnávací časová osa české politiky">
 <meta name="twitter:description" content="Interaktivní srovnání životních drah sedmnácti osobností české politiky. Vyberte jedno nebo více jmen, porovnejte jejich dráhy rok po roce a otevřete si ke každé ze 144 událostí podrobný článek s fakty i argumenty všech stran.">
-<meta name="twitter:image" content="https://budilm.github.io/jaktocist/og-image.png">
+<meta name="twitter:image" content="https://jaktocist.cz/og-image.png">
 
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -36,24 +36,24 @@
  "@graph": [
   {
    "@type": "WebSite",
-   "@id": "https://budilm.github.io/jaktocist/#website",
-   "url": "https://budilm.github.io/jaktocist/",
+   "@id": "https://jaktocist.cz/#website",
+   "url": "https://jaktocist.cz/",
    "name": "Paralelní životy",
    "description": "Interaktivní srovnání životních drah sedmnácti osobností české politiky. Vyberte jedno nebo více jmen, porovnejte jejich dráhy rok po roce a otevřete si ke každé ze 144 událostí podrobný článek s fakty i argumenty všech stran.",
    "inLanguage": "cs-CZ"
   },
   {
    "@type": "WebPage",
-   "@id": "https://budilm.github.io/jaktocist/#webpage",
-   "url": "https://budilm.github.io/jaktocist/",
+   "@id": "https://jaktocist.cz/#webpage",
+   "url": "https://jaktocist.cz/",
    "name": "Paralelní životy — srovnávací časová osa české politiky",
    "isPartOf": {
-    "@id": "https://budilm.github.io/jaktocist/#website"
+    "@id": "https://jaktocist.cz/#website"
    },
    "description": "Interaktivní srovnání životních drah sedmnácti osobností české politiky. Vyberte jedno nebo více jmen, porovnejte jejich dráhy rok po roce a otevřete si ke každé ze 144 událostí podrobný článek s fakty i argumenty všech stran.",
    "inLanguage": "cs-CZ",
    "primaryImageOfPage": {
-    "@id": "https://budilm.github.io/jaktocist/#image"
+    "@id": "https://jaktocist.cz/#image"
    },
    "about": [
     {
@@ -128,8 +128,8 @@
   },
   {
    "@type": "ImageObject",
-   "@id": "https://budilm.github.io/jaktocist/#image",
-   "url": "https://budilm.github.io/jaktocist/og-image.png",
+   "@id": "https://jaktocist.cz/#image",
+   "url": "https://jaktocist.cz/og-image.png",
    "width": 1200,
    "height": 630
   }
@@ -271,7 +271,8 @@
     position:sticky;top:0;z-index:20;background:var(--paper);
     border-top:1px solid var(--ink);border-bottom:1px solid var(--rule);padding:10px 0;
   }
-  .legend .wrap{display:flex;gap:26px;align-items:center;flex-wrap:wrap}
+  .legend .wrap{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+  .keys{display:flex;gap:22px;align-items:center;flex-wrap:wrap;flex:1 1 auto;min-width:0}
   .key{
     font-family:"IBM Plex Mono",monospace;font-size:11.5px;font-weight:600;
     letter-spacing:.14em;text-transform:uppercase;display:flex;align-items:center;gap:8px;
@@ -416,6 +417,50 @@
   .timeline.zoom-out .r-shared .yr{margin-bottom:6px}
   .timeline.zoom-out .r-shared h4{font-size:15.5px}
 
+  /* ---------- vyhledávání ---------- */
+  .searchbox{position:relative;flex:0 0 auto;width:250px;margin-left:auto}
+  .searchbox .ico{
+    position:absolute;left:9px;top:50%;transform:translateY(-50%);
+    font-size:14px;color:var(--muted);pointer-events:none;
+  }
+  .searchbox input{
+    width:100%;box-sizing:border-box;
+    font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink);
+    padding:7px 10px 7px 27px;border:1px solid var(--ink);border-radius:0;
+    background:#FBFAF6;-webkit-appearance:none;appearance:none;
+  }
+  .searchbox input::placeholder{
+    color:var(--muted);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+  }
+  .searchbox input:focus{outline:2px solid var(--ink);outline-offset:1px}
+  .searchbox input::-webkit-search-cancel-button{-webkit-appearance:none}
+  .fltchip{
+    display:inline-flex;align-items:center;gap:9px;flex:0 0 auto;
+    font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:600;
+    letter-spacing:.1em;text-transform:uppercase;
+    background:var(--ink);color:var(--paper);border:1px solid var(--ink);
+    padding:6px 10px 6px 12px;cursor:pointer;
+  }
+  .fltchip[hidden]{display:none}
+  .fltchip .cnt2{opacity:.72;letter-spacing:.06em;text-transform:none}
+  .fltchip .x{
+    font-family:"Archivo",sans-serif;font-weight:800;font-size:14px;line-height:1;
+    padding-left:2px;opacity:.85;
+  }
+  .fltchip:hover{background:#000}
+  .fltchip:hover .x{opacity:1}
+  .fltnote{
+    font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.08em;
+    color:#9C2B2B;flex:0 0 auto;
+  }
+  .fltnote[hidden]{display:none}
+  /* ztlumení pásu éry při filtru – barvou, nikoli průhledností,
+     jinak by podkladem prosvítala páteř osy */
+  .timeline.filtered .era{border-color:var(--rule)}
+  .timeline.filtered .era h3{color:#5D6068}
+  .timeline.filtered .era p,
+  .timeline.filtered .era .range{color:#8A867C}
+
   /* ---------- statický archiv ---------- */
   .archive{border-top:4px solid var(--ink);padding:34px 0 10px}
   .archive h2{
@@ -466,6 +511,53 @@
   footer p{
     font-family:"IBM Plex Mono",monospace;font-size:11.5px;line-height:1.8;
     color:var(--muted);max-width:760px;
+  }
+
+  /* ---------- patička ---------- */
+  .about{border-top:1px solid var(--rule)}
+  .about>summary{
+    cursor:pointer;list-style:none;display:flex;align-items:baseline;
+    gap:16px;flex-wrap:wrap;padding:16px 0;
+  }
+  .about>summary::-webkit-details-marker{display:none}
+  .about>summary::after{
+    content:"+";font-family:"Archivo",sans-serif;font-weight:800;font-size:16px;
+    margin-left:auto;color:var(--muted);
+  }
+  .about[open]>summary::after{content:"−"}
+  .ab-t{
+    font-family:"Archivo",sans-serif;font-variation-settings:"wdth" 106;
+    font-weight:800;font-size:14px;text-transform:uppercase;letter-spacing:.02em;color:var(--ink);
+  }
+  .ab-stamp{
+    font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--muted);
+  }
+  .about[open]>summary{border-bottom:1px solid var(--rule)}
+  .ab-grid{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:26px 40px;padding:24px 0 8px;
+  }
+  .ab-box.ab-wide{grid-column:1 / -1}
+  .ab-box h4{
+    font-family:"IBM Plex Mono",monospace;font-size:10.5px;font-weight:600;
+    letter-spacing:.2em;text-transform:uppercase;color:var(--ink);margin-bottom:9px;
+  }
+  .ab-box p{font-size:13px;line-height:1.65;color:#54575E;max-width:70ch}
+  .ab-box a{color:inherit}
+  .ab-rules{list-style:none;display:grid;gap:8px;max-width:80ch}
+  .ab-rules li{font-size:13px;line-height:1.6;color:#54575E;padding-left:15px;position:relative}
+  .ab-rules li::before{content:"—";position:absolute;left:0;color:var(--muted)}
+  .ab-rules b{color:var(--ink);font-weight:600}
+  .ab-log{list-style:none;display:grid;gap:7px;max-width:80ch}
+  .ab-log li{display:flex;gap:14px;font-size:13px;line-height:1.6;color:#54575E}
+  .ab-log time{
+    font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--ink);
+    flex:0 0 82px;padding-top:1px;
+  }
+  @media (max-width:760px){
+    .ab-grid{grid-template-columns:1fr;gap:22px}
+    .ab-log li{flex-direction:column;gap:2px}
+    .ab-log time{flex:none}
   }
 
   /* ---------- modal ---------- */
@@ -551,6 +643,8 @@
     .profile{border-left:none;border-top:1px solid var(--rule)}
     .profile:first-child{border-top:none}
     .hint{margin-left:0;width:100%}
+    .searchbox{width:100%;margin-left:0;order:-1}
+    .fltchip{order:-1;width:100%;justify-content:flex-start}
     .zoomseg{margin-left:0}
     .zoomseg~.hint{margin-left:0}
     .lanehead{display:none}
@@ -584,7 +678,7 @@
 
 <header>
   <div class="wrap">
-    <div class="eyebrow">Paralelní životy · Srovnávací časová osa · 1954–2026</div>
+    <div class="eyebrow">Paralelní životy · Srovnávací časová osa · 1941–2026</div>
     <h1 id="titleNames"></h1>
     <p class="lede">Životní dráhy, které vedly na vrchol české politiky – služebním postupem, budováním impéria, nebo silou sociálních sítí. Vyber osobnosti a porovnej jejich cesty rok po roce: dvě dráhy se zobrazí proti sobě, více jich osa srovná v paralelních pruzích.</p>
 
@@ -601,7 +695,16 @@
 </header>
 
 <div class="legend">
-  <div class="wrap" id="legendKeys"></div>
+  <div class="wrap">
+    <div class="keys" id="legendKeys"></div>
+    <div class="searchbox">
+      <span class="ico" aria-hidden="true">⌕</span>
+      <input id="q" type="search" autocomplete="off" spellcheck="false"
+             placeholder="Filtrovat osu — Enter" aria-label="Hledat v článcích a filtrovat osu">
+    </div>
+    <button class="fltchip" id="fltchip" hidden></button>
+    <span class="fltnote" id="fltnote" role="status" aria-live="polite" hidden></span>
+  </div>
 </div>
 
 <main class="wrap">
@@ -699,7 +802,7 @@
       <article class="artsrc" id="art-v-2014">
   <span class="tag t-klaus">Václav Klaus · 2013–2026</span>
   <h2>Institut, líheň a věčný komentátor</h2>
-  <p class="perex">Po odchodu z Hradu založil Institut Václava Klause a jeho vliv zdánlivě upadal – až do chvíle, kdy z jeho okruhu vzešly strany, které dnes sedí ve vládě. V pětaosmdesáti patří stále k nejcitovanějším hlasům české politiky.</p>
+  <p class="perex">Institut Václava Klause vznikl už v roce 2012, tedy ještě za jeho prezidentství, a po odchodu z Hradu se stal jeho hlavním působištěm; vliv zdánlivě upadal – až do chvíle, kdy z jeho okruhu vzešly strany, které dnes sedí ve vládě. V pětaosmdesáti patří stále k nejcitovanějším hlasům české politiky.</p>
   <p>Institut se stal ideovým zázemím i personální líhní. Prošel jím Petr Macinka, dnešní ministr zahraničí a předseda Motoristů, kteří na Klausovy pozice – euroskepsi, odpor k Zelené dohodě a klimatické politice – přímo navazují. Klausův syn Václav Klaus mladší mezitím založil Trikolóru. Před volbami v roce 2025 Klaus veřejně prohlásil, že Babiš bude lepší premiér než Fiala, jehož vládu dlouhodobě odsuzoval, a předpověděl, že Filip Turek ministrem zahraničí nakonec nebude.</p>
   <p>Loajální ale není ani k vlastnímu dorostu. V roce 2026 v televizním rozhovoru prohlásil, že by hned první den vyměnil dva ministry Babišovy vlády, a Motoristům vyčetl, že nejsou dost zřetelní a měli by víc bouchat do stolu. Zůstává tak v roli, kterou zastává od devadesátých let: nikoli spojence, ale rozhodčího, který uděluje známky všem včetně těch, kdo se k němu hlásí.</p>
   <h5>Jak to číst</h5>
@@ -759,7 +862,7 @@
   <h2>Zrada, exil na Vysočině a cesta zpět</h2>
   <p class="perex">V roce 2003 kandiduje na prezidenta jako oficiální kandidát vlastní strany – a prohraje, protože ho nepodpoří část vlastních poslanců. Uraženě odchází z politiky do chalupy na Vysočině. Většina komentátorů ho odepíše. Mýlí se.</p>
   <p>Tajná volba v parlamentu byla pro Zemana traumatem, o němž mluvil ještě po dvaceti letech; slovo „zrada“ se stalo trvalou součástí jeho slovníku a nedůvěra ke stranickým kolegům jeho druhou přirozeností. V roce 2007 z ČSSD vystoupil úplně. Z Nového Veselí posílal do světa komentáře, přijímal novináře a pěstoval obraz mudrce v ústraní.</p>
-  <p>Návrat plánoval systematicky. V roce 2009 spoluzaložil Stranu práv občanů, s níž ve volbách 2010 neuspěl – necelá čtyři procenta. Projekt ale splnil jiný účel: udržel Zemana ve hře a vytvořil mu organizační zázemí pro okamžik, na který čekal. Přímá volba prezidenta, schválená v roce 2012, byla přesně ten formát, který vyhovoval jeho talentu: souboj tváří a slov, kde stranické aparáty nerozhodují.</p>
+  <p>Návrat plánoval systematicky. V roce 2009 spoluzaložil Stranu práv občanů, s níž ve volbách 2010 neuspěl – 4,33 procenta nestačila na pětiprocentní hranici. Projekt ale splnil jiný účel: udržel Zemana ve hře a vytvořil mu organizační zázemí pro okamžik, na který čekal. Přímá volba prezidenta, schválená v roce 2012, byla přesně ten formát, který vyhovoval jeho talentu: souboj tváří a slov, kde stranické aparáty nerozhodují.</p>
   <h5>Jak to číst</h5>
   <p>Devět let mezi porážkou a návratem je nejlepší ukázkou Zemanovy politické houževnatosti – a také jeho schopnosti proměnit křivdu v pohon. Kritici dodávají, že si z roku 2003 odnesl i něco horšího: přesvědčení, že loajalita je jediná měna, která v politice platí. Jeho hradní éra dá oběma výkladům materiál.</p>
 </article>
@@ -788,7 +891,7 @@
   <p>Zdravotně šlo o těžké období: v březnu 2024 operace kvůli krevní sraženině a kritickému nedokrvení nohy, dlouhá rehabilitace a označení „křehký pacient“, na podzim 2025 operace tlustého střeva, po níž si oddechl, že nález byl nezhoubný. Přesto si otevřel exprezidentskou kancelář v Praze, kam jezdí jednou týdně přijímat návštěvy a poskytovat rozhovory.</p>
   <p>Politicky se vyprofiloval jasně. Babišovu vládu z prosince 2025 označil za kabinet profesionálů, zatímco Fialovu za „vládu amatérů“, ačkoli s Babišem měl v minulosti ostré roztržky. V roce 2026 se opakovaně postavil proti prezidentu Pavlovi: v jejich sporu o účast na summitu NATO v Ankaře dal za pravdu vládě, prohlásil, že Pavlovi „nelze tak úplně věřit“, a poté, co Ústavní soud předběžným opatřením účast prezidentovi zajistil, napsal, že probíhá útok na postavení vlády a parlamentní systém a že soud je podjatý. Pro volbu 2028 doporučil jako protikandidáta Pavlovi místopředsedu Sněmovny Radka Vondráčka a Babišovi kandidaturu rozmluvil s tím, že by země přišla o schopného premiéra.</p>
   <h5>Jak to číst</h5>
-  <p>Zeman je nejlepším důkazem, že v české politice se pozice nedědí podle stran, ale podle vztahů a účtů. Muž, který založil moderní sociální demokracii, dnes hájí koalici ANO, SPD a Motoristů proti prezidentovi, jehož úřad sám třiatřicet let budoval směrem k větší moci. Zda jde o konzistentní obranu vlády proti soudům a Hradu, nebo o poslední formu politické msty, ať posoudí čtenář – materiál k obojímu dodává on sám, prakticky každý týden.</p>
+  <p>Zeman je nejlepším důkazem, že v české politice se pozice nedědí podle stran, ale podle vztahů a účtů. Muž, který založil moderní sociální demokracii, dnes hájí koalici ANO, SPD a Motoristů proti prezidentovi, jehož úřad sám deset let posouval směrem k větší moci. Zda jde o konzistentní obranu vlády proti soudům a Hradu, nebo o poslední formu politické msty, ať posoudí čtenář – materiál k obojímu dodává on sám, prakticky každý týden.</p>
 </article>
     </details>
     <details class="arch-person" style="--pc:#23566B">
@@ -824,7 +927,7 @@
       <article class="artsrc" id="art-p-1993">
 <span class="tag t-pavel">Petr Pavel · 1993</span>
   <h2>Tři dny mezi frontami</h2>
-  <p class="perex">Leden 1993, chorvatské pohraničí. Během chorvatské ofenzivy u Maslenice uvízne mezi znepřátelenými liniemi skupina francouzských vojáků mírové mise UNPROFOR. Akci na jejich vyproštění vede osmadvacetiletý český důstojník Petr Pavel.</p>
+  <p class="perex">Leden 1993, chorvatské pohraničí. Během chorvatské ofenzivy u Maslenice uvízne mezi znepřátelenými liniemi skupina francouzských vojáků mírové mise UNPROFOR. Akci na jejich vyproštění vede jednatřicetiletý český důstojník Petr Pavel.</p>
   <p>Operace trvala tři dny a odehrávala se v území, kde se právě bojovalo: vyjednávání s oběma stranami konfliktu, průjezdy přes frontové linie, odvoz vojáků včetně raněných. Přes padesát francouzských vojáků se dostalo ven; dva při předchozích bojích zahynuli. Francie ocenila Pavla Válečným křížem – vyznamenáním, které cizinci dostávají jen výjimečně – a uznání přišlo i z domova.</p>
   <p>Pro Pavlovu kariéru to byl zlom. Nová česká armáda zoufale hledala důstojníky, kteří obstáli v reálné operaci, a Pavel se stal jejím žijícím argumentem: důkazem, že transformace z armády Varšavské smlouvy v armádu západního typu může fungovat. Od Maslenice vede přímá linka k britským štábním školám, Bruselu i Generálnímu štábu.</p>
   <h5>Jak to číst</h5>
@@ -852,7 +955,7 @@
 <span class="tag t-pavel">Petr Pavel · 2012–2015</span>
   <h2>Nejvyšší voják země</h2>
   <p class="perex">1. července 2012 se generálporučík Pavel stává náčelníkem Generálního štábu Armády České republiky. Přebírá armádu v nejhorší rozpočtové kondici od vzniku samostatného státu.</p>
-  <p>Obranné výdaje tehdy klesly hluboko pod jedno procento HDP, armáda rušila schopnosti a odcházeli lidé. Pavel zvolil taktiku, která odpovídá jeho stylu: místo veřejných konfliktů s politiky trpělivé přesvědčování, že podfinancovaná armáda přestane plnit závazky vůči NATO. Zároveň pokračovaly mise v Afghánistánu, jejichž veteráni tvořili nové jádro profesionálního sboru. V roce 2014 ho prezident jmenoval armádním generálem – dosáhl nejvyšší hodnosti.</p>
+  <p>Obranné výdaje se tehdy pohybovaly kolem jednoho procenta HDP – podle materiálu ministerstva obrany z listopadu 2013 šlo o 1,1 procenta – armáda rušila schopnosti a odcházeli lidé. Pavel zvolil taktiku, která odpovídá jeho stylu: místo veřejných konfliktů s politiky trpělivé přesvědčování, že podfinancovaná armáda přestane plnit závazky vůči NATO. Zároveň pokračovaly mise v Afghánistánu, jejichž veteráni tvořili nové jádro profesionálního sboru. V roce 2014 ho prezident jmenoval armádním generálem – dosáhl nejvyšší hodnosti.</p>
   <p>Drobná historická ironie: část této éry slouží Pavel pod vládou, v níž je prvním vicepremiérem a ministrem financí Andrej Babiš – muž, s nímž se o dekádu později utká o Hrad a jehož vládu bude jmenovat. Jejich dráhy se tu poprvé přiblížily na dohled, aniž se protnuly.</p>
   <h5>Jak to číst</h5>
   <p>Funkce náčelníka je politicky exponovaná – a Pavel z ní vyšel s pověstí profesionála přijatelného napříč stranami. Právě tato „nekonfliktnost se všemi vládami“ se později stane dvojsečnou: v kampani 2023 ji jedni četli jako státnickou zdrženlivost, druzí jako opatrnost člověka, který nikdy nešel proti proudu.</p>
@@ -861,8 +964,8 @@
 <span class="tag t-pavel">Petr Pavel · 2015–2018</span>
   <h2>V čele generálů Aliance</h2>
   <p class="perex">V červnu 2015 usedá Pavel do čela Vojenského výboru NATO – nejvyššího vojenského orgánu Aliance. Poprvé v historii ho vede voják ze země bývalé Varšavské smlouvy. Důstojník kdysi cvičený proti NATO teď radí jeho generálnímu tajemníkovi.</p>
-  <p>Do funkce ho v roce 2014 zvolili náčelníci generálních štábů členských zemí – a načasování z ní udělalo jednu z klíčových pozic. Rusko právě anektovalo Krym a rozpoutalo válku na východě Ukrajiny; Aliance po letech „mírové dividendy“ obracela kormidlo k obraně vlastního území. Za Pavlova předsednictví vznikají síly velmi rychlé reakce a rozhoduje se o rozmístění mnohonárodních jednotek v Pobaltí a Polsku. K tomu boj proti tzv. Islámskému státu a nástup hybridních hrozeb.</p>
-  <p>Role předsedy není velitelská, ale konsenzuální: sladit pozice devětadvaceti armád a přetavit je v doporučení pro politiky. Diplomaté z té doby popisují Pavla jako věcného moderátora, který nezvyšuje hlas a hledá průsečíky – hodnocení, které se o pár let později téměř doslova přenese do jeho prezidentské kampaně.</p>
+  <p>Do funkce ho v roce 2014 zvolili náčelníci generálních štábů členských zemí – a načasování z ní udělalo jednu z klíčových pozic. Rusko právě anektovalo Krym a rozpoutalo válku na východě Ukrajiny; Aliance po letech „mírové dividendy“ obracela kormidlo k obraně vlastního území. Síly velmi rychlé reakce schválila Aliance už v září 2014, tedy před jeho nástupem; za Pavlova předsednictví se budovaly a rozhodovalo se o rozmístění mnohonárodních jednotek v Pobaltí a Polsku. K tomu boj proti tzv. Islámskému státu a nástup hybridních hrozeb.</p>
+  <p>Role předsedy není velitelská, ale konsenzuální: sladit pozice armád členských zemí a přetavit je v doporučení pro politiky. Vojenský výbor je nejvyšší vojenský orgán Aliance, politická rozhodnutí ale přísluší Severoatlantické radě – předsednictví výboru tedy neznamená vedení Aliance ani operační velení jejím armádám. Diplomaté z té doby popisují Pavla jako věcného moderátora, který nezvyšuje hlas a hledá průsečíky – hodnocení, které se o pár let později téměř doslova přenese do jeho prezidentské kampaně.</p>
   <h5>Jak to číst</h5>
   <p>Pro Pavlovy zastánce je tato kapitola definitivní odpovědí na výtky z 80. let: Aliance mu po nejpřísnějších prověrkách svěřila svůj vojenský vrchol. Pro nesmiřitelné kritiky zůstává symbolem kariéry, která vždy plynule kopírovala mocenské poměry. Faktem je, že československý výsadkář z Prostějova skončil v čele generálů NATO – interpretace tohoto oblouku je na čtenáři.</p>
 </article>
@@ -878,7 +981,7 @@
       <article class="artsrc" id="art-p-2020">
 <span class="tag t-pavel">Petr Pavel · 2020–2022</span>
   <h2>Zkouška civilního lídra</h2>
-  <p class="perex">Na podzim 2020, uprostřed druhé covidové vlny, zakládá Pavel s diplomatem Petrem Kolářem iniciativu Spolu silnější – síť propojující odborníky, firmy a dobrovolníky s těmi, kdo pomoc potřebovali. Pro generála ve výslužbě je to první velká civilní role.</p>
+  <p class="perex">Na jaře 2020, s příchodem pandemie, zakládá Pavel s diplomatem Petrem Kolářem iniciativu Spolu silnější – síť propojující odborníky, firmy a dobrovolníky s těmi, kdo pomoc potřebovali. Pro generála ve výslužbě je to první velká civilní role.</p>
   <p>Iniciativa organizovala pomoc nemocnicím i seniorům a Pavel v ní vystupoval jako koordinátor a tvář zdravého rozumu v čase chaotických vládních opatření. Právě kontrast s krizovým řízením Babišovy vlády – tehdy jednu z nejhorších covidových bilancí na světě vysvětlující střídavě smůlou a opozicí – mu budoval kapitál, který se dal později přetavit v kandidaturu.</p>
   <p>Skeptické čtení existuje i zde: Spolu silnější podle kritiků fungovalo také jako inkubátor prezidentského týmu a testovací kampaň – budování kontaktů v regionech, mediální přítomnost, sběr dat. V roce 2022 Pavel kandidaturu oficiálně oznámil a nastoupil do ní s profesionálním zázemím, jaké nepolitický kandidát v Česku dosud neměl.</p>
   <h5>Jak to číst</h5>
@@ -896,11 +999,11 @@
     </details>
     <details class="arch-person" style="--pc:#4A535A">
       <summary><i></i>Karel Řehka <span class="cnt">8</span></summary>
-      <p class="arch-meta">* 1975, Tišnov · speciální síly → velitel 601. skupiny → šéf kyberúřadu → náčelník Generálního štábu</p>
+      <p class="arch-meta">* 1. 2. 1975, Brno · speciální síly → velitel 601. skupiny → šéf kyberúřadu → náčelník Generálního štábu</p>
       <article class="artsrc" id="art-r-1975">
 <span class="tag t-rehka">Karel Řehka · 1975–2001</span>
   <h2>Stejné školy, jiná doba</h2>
-  <p class="perex">Karel Řehka se narodil v roce 1975 v Tišnově u Brna. Prošel vojenským gymnáziem v Opavě a průzkumným směrem Vysoké vojenské školy pozemního vojska ve Vyškově – tedy přesně těmi školami, které o generaci dříve vychovaly Petra Pavla. Rozdíl je v datu.</p>
+  <p class="perex">Karel Řehka se narodil 1. února 1975 v Brně. Prošel vojenským gymnáziem v Opavě a průzkumným směrem Vysoké vojenské školy pozemního vojska ve Vyškově – tedy přesně těmi školami, které o generaci dříve vychovaly Petra Pavla. Rozdíl je v datu.</p>
   <p>Když padl minulý režim, bylo Řehkovi čtrnáct. Do uniformy nastupoval do armády, která už byla armádou demokratického státu a mířila do NATO, ne do Varšavské smlouvy. Nikdy nemusel řešit stranickou legitimaci ani kádrový posudek; jeho generace důstojníků je první, jejíž životopis nemá předlistopadovou kapitolu.</p>
   <p>Na přelomu tisíciletí si ve Vyškově doplnil dálkové magisterské studium a krátce působil jako náčelník skupiny leteckých návodčích u taktického letectva. Byla to nenápadná léta transformace: armáda se zmenšovala, rušily se posádky a odcházeli lidé. Kdo v ní tehdy zůstal, počítal spíš s rozpočtovými škrty než s velkou válkou v Evropě.</p>
   <h5>Jak to číst</h5>
@@ -963,7 +1066,7 @@
       <article class="artsrc" id="art-r-2026">
 <span class="tag t-rehka">Karel Řehka · 2026</span>
   <h2>Odchod bez skandálu</h2>
-  <p class="perex">V létě 2026 končí Řehkovi závazek a s ním i čtyři roky v čele armády. Jeho nástupcem má být Miroslav Hlaváč, dosavadní první zástupce – volba, kterou schválila vláda, ocenil ji prezident, a proti níž hlasoval jediný člověk: ministr obrany.</p>
+  <p class="perex">V polovině roku 2026 skončila Řehkovi čtyři léta v čele armády. K 1. červenci ho vystřídal jeho dosavadní první zástupce Miroslav Hlaváč – volba, kterou schválila vláda, ocenil ji prezident, a proti níž hlasoval jediný člověk: ministr obrany.</p>
   <p>Personální rošádu ohlásil ministr obrany Jaromír Zůna už v lednu 2026 jako součást rozsáhlé obměny generality. Kandidáty na Řehkova nástupce předložil vládě on sám a podle dostupných informací je předtím probíral i s odcházejícím náčelníkem. Na jednání 18. května 2026 však vláda vybrala Hlaváče a Zůna byl jediným ministrem, který hlasoval proti; premiér Babiš to sám oznámil na tiskové konferenci a Hlaváče označil za ideálního kandidáta.</p>
   <p>Prezident Pavel, který nakonec náčelníka jmenuje, výběr přivítal s odkazem na Hlaváčovy velitelské zkušenosti. Kladně se vyjádřila i Jana Černochová, s níž Řehka roky sporů vedl – Hlaváče označila za logickou volbu a signál kontinuity. Řehka tak odchází způsobem, který v jeho případě není samozřejmý: bez skandálu, s nástupcem z vlastního štábu a s armádou, jejíž rozpočet za jeho funkce vzrostl na dvojnásobek toho, co zdědil.</p>
   <h5>Jak to číst</h5>
@@ -1079,19 +1182,20 @@
   <h2>Rok, kdy se všechno sešlo</h2>
   <p class="perex">Duben: závěrečný audit Evropské komise potvrzuje Babišův střet zájmů. Říjen: Pandora Papers a těsná volební porážka během jediného týdne. Prosinec: konec ve Strakově akademii. Rok 2021 je anatomií pádu – i když, jak se ukáže, jen dočasného.</p>
   <p>Audit Komise uzavřel, že Babiš navzdory svěřenským fondům Agrofert fakticky ovládá, koncern proto nemá nárok na evropské dotace – závěr, který o tři roky později potvrdí i český soud. V pozadí ležela i covidová bilance: Česko patřilo v zimě 2020/21 k zemím s nejvyšším počtem úmrtí na obyvatele na světě a rozpočty skončily v rekordních deficitech; vláda argumentovala bezprecedentní krizí a masivní pomocí ekonomice.</p>
-  <p>Tři dny před volbami zveřejnilo mezinárodní konsorcium novinářů Pandora Papers: Babiš podle nich v roce 2009 koupil přes řetězec offshorových firem nemovitosti na francouzské Riviéře za stovky milionů korun, aniž strukturu kdy přiznal. Babiš mluvil o zdaněných penězích a předvolební špinavosti; české orgány nakonec nikoho neobvinily. Volby ANO prohrálo o pouhých 0,7 bodu s koalicí SPOLU – paradoxně při zisku 27,1 %, tedy víc než v roce 2013. Proti němu se však složila sněmovní většina pěti stran.</p>
+  <p>Pět dní před začátkem voleb zveřejnilo mezinárodní konsorcium novinářů Pandora Papers: Babiš podle nich v roce 2009 koupil přes řetězec offshorových firem nemovitosti na francouzské Riviéře za stovky milionů korun, aniž strukturu kdy přiznal. Babiš mluvil o zdaněných penězích a předvolební špinavosti; české orgány nakonec nikoho neobvinily. Volby ANO prohrálo o pouhých 0,7 bodu s koalicí SPOLU – při zisku 27,1 %, tedy o 41 973 hlasů méně než v roce 2017, ale stále víc než při svém průlomu v roce 2013. Proti němu se však složila sněmovní většina pěti stran.</p>
   <h5>Jak to číst</h5>
-  <p>Babiš neprohrál proto, že by ztratil voliče – prohrál proto, že proti sobě sjednotil všechny ostatní. To je klíč k pochopení jeho další strategie: v opozici nebude hledat střed, ale mobilizovat vlastní tábor. A jak ukáže rok 2025, spočítal si to správně.</p>
+  <p>Babiš neprohrál kvůli zhroucení podpory – hlasů ubylo, ale zůstal nejsilnějším jednotlivým subjektem. Prohrál proto, že proti sobě sjednotil všechny ostatní. To je klíč k pochopení jeho další strategie: v opozici nebude hledat střed, ale mobilizovat vlastní tábor. A jak ukáže rok 2025, spočítal si to správně.</p>
 </article>
       <article class="artsrc" id="art-b-2023">
 <span class="tag t-babis">Andrej Babiš · 2023–2026</span>
   <h2>Nejsledovanější proces v zemi</h2>
-  <p class="perex">Dvakrát zproštěn, dvakrát zrušeno, potřetí před soudem. Kauza Čapí hnízdo se táhne od roku 2015, žaloba padla v roce 2019 – a v době, kdy Babiš potřetí usedá do premiérského křesla, stále nemá pravomocný konec.</p>
+  <p class="perex">Dvakrát zproštěn, dvakrát zrušeno, potřetí před soudem. Kauza Čapí hnízdo se táhne od roku 2015, obžaloba byla podána 21. března 2022 – a v době, kdy Babiš potřetí usedá do premiérského křesla, stále nemá pravomocný konec.</p>
   <p>Rekapitulace: V lednu 2023, pár dní před prezidentskou volbou, zprostil Městský soud v Praze Babiše i Janu Nagyovou obžaloby – skutek podle soudce Jana Šotta nebyl trestným činem. Vrchní soud verdikt zrušil a vrátil; městský soud v únoru 2024 zprostil znovu. V červnu 2025 však odvolací senát zrušil i druhý rozsudek a učinil bezprecedentní krok: závazným právním názorem konstatoval, že dokazování neumožňuje jiný závěr, než že obžalovaní naplnili skutkovou podstatu dotačního podvodu a poškození finančních zájmů EU. Městský soud, který rozhodoval potřetí, byl tímto názorem vázán.</p>
-  <p>Rok 2026 kauzu rozdělil na dvě větve. Počátkem března Sněmovna Babiše nevydala k trestnímu stíhání, takže jeho řízení je po dobu poslaneckého mandátu přerušeno a soud 12. března jeho věc vyloučil k samostatnému projednání. Nagyová tuto ochranu nemá – 4. května 2026 ji Městský soud jako první instance nepravomocně uznal vinnou z dotačního podvodu a poškození finančních zájmů EU a uložil jí tříletou podmínku s pětiletou zkušební dobou a peněžitý trest 500 tisíc korun. Soudce Šott u toho poznamenal, že senát se závěry Vrchního soudu nadále nesouhlasí, musí je však respektovat. Nagyová vinu odmítá a může se odvolat; Babiš označil rozsudek za odsouzení na objednávku a o vydání Sněmovnu žádat nehodlá.</p>
+  <p>Rok 2026 kauzu rozdělil na dvě větve. Počátkem března Sněmovna Babiše nevydala k trestnímu stíhání, takže jeho řízení je po dobu poslaneckého mandátu přerušeno a soud 12. března jeho věc vyloučil k samostatnému projednání. Nagyová tuto ochranu nemá; imunitu jí pro tuto věc odňal v dubnu 2025 Evropský parlament. 4. května 2026 ji Městský soud v prvním stupni uznal vinnou z dotačního podvodu a poškození finančních zájmů EU a uložil jí tříletou podmínku s pětiletou zkušební dobou a peněžitý trest 500 tisíc korun; soudce Šott u toho poznamenal, že senát se závěry Vrchního soudu nadále nesouhlasí, musí je však respektovat. Vrchní soud v Praze rozsudek 31. srpna 2026 pravomocně potvrdil – proti rozhodnutí zůstává možnost dovolání. Babiš označil verdikt za odsouzení na objednávku a o vydání Sněmovnu žádat nehodlá.</p>
+  <p>Jednu věc je přitom nutné držet oddělenou. Sněmovna svým hlasováním nerozhodla o Babišově vině ani nevině, ale pouze o tom, že nedala souhlas s jeho trestním stíháním; o vině rozhoduje výhradně soud a platí presumpce neviny. Pravomocné odsouzení Nagyové se na jeho větev automaticky nepřenáší, protože jde o samostatně vedené řízení s odlišným obviněním – jemu je kladena za vinu pomoc k oběma trestným činům.</p>
   <p>Právě tento postup rozděluje i právnickou obec. Část advokátů mluví o legitimním ukončení „procesního ping-pongu“, které umožnil nález Ústavního soudu z března 2023; obhajoba a část komentátorů o faktickém odsouzení odvolacím soudem bez plnohodnotného procesu. Babiš, který podle svých slov třikrát sám požádal o vydání ke stíhání, dnes říká, že už nevěří v nestrannost všech českých soudů, a kauzu označuje za čtrnáct let trvající politický boj proti své osobě.</p>
   <h5>Jak to číst</h5>
-  <p>Po jedenácti letech skončila kauza ve stavu, který neuspokojí nikoho: spolupracovnice nepravomocně odsouzena, hlavní obžalovaný chráněn mandátem, o jeho vině či nevině nerozhodl soud, ale hlasování Sněmovny. Nabízejí se tak dva závěry k výběru: buď mohl premiér země léta čelit vykonstruovanému procesu a Sněmovna ho před ním ochránila, nebo země tolerovala v čele vlády muže, jehož věc soudy nestihly rozhodnout dřív, než mu imunita rozhodnutí odsunula. Délka řízení je sama o sobě výpovědí o stavu české justice – na tom se výjimečně shodnou oba tábory.</p>
+  <p>Po jedenácti letech skončila kauza ve stavu, který neuspokojí nikoho: spolupracovnice pravomocně odsouzena, hlavní obžalovaný chráněn mandátem a jeho vina ani nevina nebyla soudem posouzena, protože Sněmovna nedala souhlas ke stíhání. Nabízejí se tak dva závěry k výběru: buď mohl premiér země léta čelit vykonstruovanému procesu a Sněmovna ho před ním ochránila, nebo země tolerovala v čele vlády muže, jehož věc soudy nestihly rozhodnout dřív, než mu imunita rozhodnutí odsunula. Délka řízení je sama o sobě výpovědí o stavu české justice – na tom se výjimečně shodnou oba tábory.</p>
 </article>
       <article class="artsrc" id="art-b-2024">
 <span class="tag t-babis">Andrej Babiš · 2024</span>
@@ -1157,8 +1261,8 @@
 <span class="tag t-schillerova">Alena Schillerová · 2020–2021</span>
   <h2>Půl bilionu a daň, kterou zrušila s opozicí</h2>
   <p class="perex">Pandemie proměnila ministryni financí z manažerky přebytků ve správkyni největších schodků v historii země. A uprostřed toho prošla daňová změna, která rozpočtu trvale ubrala desítky miliard – prosazená společně s ODS.</p>
-  <p>Sněmovna v létě 2020 povolila vládě schodek půl bilionu korun a rozpočty let 2020 a 2021 skončily v dosud nevídaných deficitech. Schillerová to hájila tím, že šlo o nejhorší krizi od třicátých let a že do ekonomiky bylo naopak nutné peníze napumpovat; kritici namítali, že skutečné covidové výdaje byly nižší než povolený rámec a že se pod hlavičkou krize rozpouštěly i běžné výdaje.</p>
-  <p>Souběžně padla superhrubá mzda. Sazby daně z příjmu klesly na 15 a 23 procent a výpadek příjmů odhadovalo samo ministerstvo na 74 až 90 miliard ročně; Schillerová veřejně přiznala, že plán, jak ho kompenzovat, nemá, a označila změnu za investici do spotřeby domácností. Varovala před ní Národní rozpočtová rada. Historicky pikantní detail: prosadit ji pomohly hlasy tehdejší opoziční ODS v čele se Zbyňkem Stanjurou – tedy lidí, kteří o rok později převzali rozpočet i s dírou, kterou to způsobilo.</p>
+  <p>Sněmovna v létě 2020 povolila vládě schodek půl bilionu korun; skutečnost byla nižší, ale stále rekordní – 367,4 miliardy za rok 2020 a 419,7 miliardy za rok 2021. Schillerová to hájila tím, že šlo o nejhorší krizi od třicátých let a že do ekonomiky bylo naopak nutné peníze napumpovat; kritici namítali, že skutečné covidové výdaje byly nižší než povolený rámec a že se pod hlavičkou krize rozpouštěly i běžné výdaje.</p>
+  <p>Souběžně padla superhrubá mzda. Změnil se tím základ daně – patnáctiprocentní sazba se nově počítala z hrubé, nikoli navýšené mzdy, a pro vysoké příjmy přibyla sazba 23 procent. Výpadek příjmů odhadovalo samo ministerstvo na 74 až 90 miliard ročně; Schillerová veřejně přiznala, že plán, jak ho kompenzovat, nemá, a označila změnu za investici do spotřeby domácností. Varovala před ní Národní rozpočtová rada. Historicky pikantní detail: prosadit ji pomohly hlasy tehdejší opoziční ODS, za niž ji prosazoval předseda poslaneckého klubu Zbyněk Stanjura – tedy lidí, kteří o rok později převzali rozpočet i s dírou, kterou to způsobilo.</p>
   <h5>Jak to číst</h5>
   <p>Tahle kapitola je učebnicovou ukázkou, jak se odpovědnost za veřejné finance rozostří, když na jednom kroku spolupracují vláda i opozice. Schillerová nese odpovědnost za rozpočet, do kterého škrt zapracovala bez náhrady; ODS za to, že ho prosazovala a ještě rozšířila. Kdo si z toho odnese jaký díl viny, patří k nejpolitičtějším otázkám celé osy.</p>
       </article>
@@ -1183,8 +1287,8 @@
       <article class="artsrc" id="art-a-2026">
 <span class="tag t-schillerova">Alena Schillerová · 2026</span>
   <h2>Rozpočet, který podle rady porušil zákon</h2>
-  <p class="perex">Vláda předložila rozpočet se schodkem 310 miliard korun. Národní rozpočtová rada konstatovala, že velmi pravděpodobně odporuje zákonu o rozpočtové odpovědnosti, a označila takovou situaci za bezprecedentní. Ministryně financí kritiku odmítla.</p>
-  <p>Zákonný strop deficitu byl výrazně nižší a předseda rady Mojmír Hampl namítal především proti přesunu plateb za obnovitelné zdroje z občanů na stát, který podle něj s literou zákona v příkrém rozporu je. Schillerová argumentovala tím, že rozpočtová pravidla fakticky porušovala už minulá vláda, jen bez adekvátní odezvy téže rady, a že současný zákon není v souladu s novým evropským Paktem stability – proto vláda předložila vlastní novelu. Právě ta v květnu 2026 vyvolala další vlnu kritiky: podle NRR i opozice si jí kabinet uvolnil ruce k ještě vyšším schodkům, což ministryně popírá.</p>
+  <p class="perex">Vláda předložila rozpočet se schodkem 310 miliard korun. Národní rozpočtová rada ve stanovisku z 10. února 2026 konstatovala, že návrh je v rozporu se zákonem o rozpočtové odpovědnosti: přípustný schodek vyčíslila na 246 miliard, tedy o 64 miliard méně, než vláda předložila. Ministryně financí kritiku odmítla.</p>
+  <p>Předseda rady Mojmír Hampl namítal především proti přesunu plateb za obnovitelné zdroje z občanů na stát, který podle něj s literou zákona v příkrém rozporu je. Schillerová argumentovala tím, že rozpočtová pravidla fakticky porušovala už minulá vláda, jen bez adekvátní odezvy téže rady, a že současný zákon není v souladu s novým evropským Paktem stability – proto vláda předložila vlastní novelu. Právě ta v květnu 2026 vyvolala další vlnu kritiky: podle NRR i opozice si jí kabinet uvolnil ruce k ještě vyšším schodkům, což ministryně popírá.</p>
   <p>Do stejného období spadá i moment, kdy se od premiéra veřejně odlišila. Když Andrej Babiš označil Národní rozpočtovou radu za zbytečnou a její zrušení nadhodil i její vlastní náměstek Petr Mach, Schillerová na tiskové konferenci prohlásila, že zrušení rady nepřipravuje, protože je zřízena zákonem. Zároveň se hlásí k úspěchu, na který vláda odkazuje nejčastěji – k nejnižší inflaci za devět let, kterou přičítá právě převedení poplatků za obnovitelné zdroje na stát.</p>
   <h5>Jak to číst</h5>
   <p>Tady se potkávají dvě legitimní teze. Rozpočtová pravidla existují právě proto, aby vláda nemohla jejich výklad ohýbat podle vlastních priorit – a instituce, která na to upozorňuje, dělá svou práci. Zároveň platí, že vláda vzešlá z voleb má právo na jiné priority než ta předchozí a že spor o účetní poctivost rozpočtu vedly obě strany už předtím, každá ze své lavice. Rozhodne až doba: zda se schodky budou snižovat, jak vláda slibuje, nebo poroste dluh, před kterým rada varuje.</p>
@@ -1276,21 +1380,21 @@
   <p>Jako hlavní výsledek uvádí ozdravení městských financí – zadlužení Kolína podle oficiálních materiálů kleslo z 950 na 470 milionů korun. K tomu opravy škol a školek, nové autobusové i vlakové nádraží, rekonstrukce chrámu svatého Bartoloměje a nástroje transparentnosti: registr smluv a rozklikávací rozpočet. V roce 2016 ho Financial Times zařadily mezi sto inovátorů střední a východní Evropy.</p>
   <p>Kritika přicházela zblízka. Bývalý kolínský starosta Jiří Buřič zpochybňoval interpretaci „vyřešeného dluhu“ a tvrdil, že mediální obraz je příznivější než skutečnost. Funkci starosty Rakušan opustil v červnu 2019, krátce po zvolení předsedou hnutí; radním a zastupitelem zůstal.</p>
   <h5>Jak to číst</h5>
-  <p>Komunální dráha je v české politice nejlepší dostupná zkouška před vstupem do celostátní politiky – výsledky jsou hmatatelné a voliči je vidí z okna. Rakušan v ní obstál výsledkem, který se ve třetích volbách blížil dvěma třetinám hlasů. Otevřenou otázkou zůstává, nakolik je řízení stotisícového rozpočtu města přípravou na resort s desítkami tisíc zaměstnanců.</p>
+  <p>Komunální dráha je v české politice nejlepší dostupná zkouška před vstupem do celostátní politiky – výsledky jsou hmatatelné a voliči je vidí z okna. Rakušan v ní obstál výsledkem, který se ve třetích volbách blížil dvěma třetinám hlasů. Otevřenou otázkou zůstává, nakolik je řízení třicetitisícového města přípravou na resort s desítkami tisíc zaměstnanců.</p>
 </article>
       <article class="artsrc" id="art-i-2015">
   <span class="tag t-rakusan">Vít Rakušan · 2015–2019</span>
   <h2>Od starostů k předsednictví</h2>
   <p class="perex">Do hnutí Starostové a nezávislí vstoupil v roce 2015, o rok později byl jeho prvním místopředsedou a v roce 2017 poslancem. V dubnu 2019 ho sněm zvolil předsedou – jako jediného kandidáta s 93,9 procenta hlasů.</p>
   <p>Předchůdce Petr Gazdík mu na sněmu symbolicky předal stan. Rakušan přebíral hnutí, které bylo tehdy spíš federací starostů než klasickou stranou: silné v obcích, slabé v celostátní politice, bez výrazného programu i bez tváře. Právě tvář a schopnost mluvit k celostátnímu publiku bylo to, co přinesl.</p>
-  <p>V následujících letech obhájil post čtyřikrát a pokaždé s výsledkem přes devadesát procent – naposledy v květnu 2025 se ziskem 282 z 286 hlasů. Taková čísla se dají číst dvěma způsoby: jako doklad silné vnitřní podpory, nebo jako známka toho, že v hnutí nevzniká alternativa.</p>
+  <p>Předsedou byl od té doby zvolen celkem čtyřikrát – po prvním zvolení mandát obhájil v letech 2021, 2022 a naposledy v květnu 2025 se ziskem 282 z 286 hlasů, pokaždé s výsledkem přes devadesát procent. Taková čísla se dají číst dvěma způsoby: jako doklad silné vnitřní podpory, nebo jako známka toho, že v hnutí nevzniká alternativa.</p>
   <h5>Jak to číst</h5>
   <p>STAN je zvláštní politický útvar: vyrostl zdola z komunální politiky, což mu dodává legitimitu, kterou hnutí zakládaná shora nemají. Zároveň to znamená volnou strukturu, v níž centrála obtížně kontroluje, co dělají lidé v regionech – a právě tahle vlastnost se ukáže jako kritická v roce 2022.</p>
 </article>
       <article class="artsrc" id="art-i-2021">
   <span class="tag t-rakusan">Vít Rakušan · 2021</span>
   <h2>Koalice, která porazila Babiše</h2>
-  <p class="perex">Před volbami 2021 vyjednal spojení s Piráty. Koalice získala 15,62 procenta a 37 mandátů – a díky kroužkování z nich připadlo Starostům 33 a Pirátům pouhé čtyři. V prosinci se Rakušan stal ministrem vnitra a prvním místopředsedou vlády Petra Fialy.</p>
+  <p class="perex">Před volbami 2021 vyjednal spojení s Piráty. Koalice získala 15,61 procenta a 37 mandátů – a díky přednostním hlasům z nich připadlo Starostům 33 a Pirátům pouhé čtyři. Nešlo tedy o samostatný volební zisk STAN, ale o rozdělení mandátů na společné kandidátce. V prosinci se Rakušan stal ministrem vnitra a prvním místopředsedou vlády Petra Fialy.</p>
   <p>Výsledek voleb byl pro STAN triumfem a pro Piráty katastrofou: voliči společné kandidátky masivně kroužkovali starostenské kandidáty. Rakušan z toho vyšel jako druhý nejsilnější muž nové vlády, sám s téměř šedesáti tisíci přednostními hlasy ve Středočeském kraji.</p>
   <p>Spojenectví ale vydrželo jen do roku 2024. Když premiér Fiala oznámil záměr odvolat pirátského vicepremiéra Ivana Bartoše kvůli nezvládnuté digitalizaci stavebního řízení, Piráti z vlády odešli. STAN navzdory dřívějšímu heslu „společně do vlády, společně do opozice“ zůstal; Rakušan argumentoval, že z koaliční smlouvy povinnost odejít nevyplývá. Do dalších voleb šlo hnutí samostatně.</p>
   <h5>Jak to číst</h5>
@@ -1299,7 +1403,7 @@
       <article class="artsrc" id="art-i-2022">
   <span class="tag t-rakusan">Vít Rakušan · 2022</span>
   <h2>Dozimetr: kauza, která přišla po půl roce</h2>
-  <p class="perex">15. června 2022, půl roku po nástupu do vlády, zasáhla policie na pražském magistrátu a v Dopravním podniku. Do korupční sítě kolem lobbisty Michala Redla patřil i místopředseda STAN Petr Hlubuček. Rakušan sám obviněn nebyl – zaplatil ale politicky.</p>
+  <p class="perex">15. června 2022, půl roku po nástupu do vlády, zasáhla policie na pražském magistrátu a v Dopravním podniku. Do korupční sítě kolem lobbisty Michala Redla patřil i předseda pražské organizace STAN Petr Hlubuček. Rakušan sám obviněn nebyl – zaplatil ale politicky.</p>
   <p>Reagoval rychle a tvrdě: Hlubučka nechal vyloučit z hnutí, ministr školství Petr Gazdík rezignoval čtyři dny po razii, přestože obviněn nebyl, europoslanec Stanislav Polčák si pozastavil členství. STAN nechal financování externě prověřit a dary s možnou vazbou na Redlovu skupinu preventivně poslal na charitu. Rakušan k tomu opakuje, že „odstoupil ministr, který nebyl ani trestně stíhán“, a postup přirovnává ke skandinávské politické kultuře.</p>
   <p>Protistrana tvrdí opak. Sám obžalovaný Hlubuček uvádí, že napojení na politiky bylo mnohem širší, než jak to líčí vedení hnutí, a žádal Rakušanův výslech u soudu. Klíčový spolupracující svědek vypověděl, že se Redl dělil o provize s politiky. K tomu přibyla vlastní Rakušanova chyba: v červenci 2022 jmenoval ředitelem civilní rozvědky Petra Mlejnka, jehož kontakty s Redlem se ukázaly vzápětí; Rakušan ho nejprve bránil, Mlejnek na konci srpna rezignoval a opozice žádala i ministrovu demisi.</p>
   <h5>Jak to číst</h5>
@@ -1326,7 +1430,7 @@
       <article class="artsrc" id="art-i-2025">
   <span class="tag t-rakusan">Vít Rakušan · 2025</span>
   <h2>Třetí místo a cesta do opozice</h2>
-  <p class="perex">Ve volbách v říjnu 2025 získal STAN 11,23 procenta a 22 mandátů – o jedenáct méně než v předchozím období. Rakušan výsledek označil za neúspěch, ale nerezignoval: hnutí překonalo hranici, kterou si samo stanovilo.</p>
+  <p class="perex">Ve volbách v říjnu 2025 získal STAN 11,23 procenta a 22 mandátů – o jedenáct méně než v předchozím období, kdy jeho 33 křesel pocházelo ze společné kandidátky s Piráty. Rakušan výsledek označil za neúspěch, ale nerezignoval: hnutí překonalo hranici, kterou si samo stanovilo.</p>
   <p>Nevyšel koncept, s nímž do voleb šel – představa, že se demokratické strany spojí do většiny schopné zastavit Andreje Babiše. STAN skončil třetí za ANO a koalicí SPOLU a odešel do opozice. Sám Rakušan získal ve Středočeském kraji 18 400 přednostních hlasů, tedy necelou třetinu toho, co v roce 2021.</p>
   <p>Předsedou zůstal; sněm ho ostatně potvrdil pár měsíců před volbami s téměř devadesáti devíti procenty. Podporu Babišovy vlády vyloučil, SPD označil za extremisty a ohlásil vznik odborného týmu, který má vládu sledovat, i systematické objíždění regionů – zejména venkova, kde STAN prohrával nejvýrazněji a kde už po krajských volbách 2024 sebekriticky přiznal, že ho hnutí „úplně ztratilo“.</p>
   <h5>Jak to číst</h5>
@@ -1385,7 +1489,7 @@
 <span class="tag t-okamura">Tomio Okamura · 2015–2021</span>
   <h2>SPD: značka na protest</h2>
   <p class="perex">SPD vzniká v květnu 2015, v týdnech, kdy Evropu zaplavují titulky o migrační krizi. Načasování dokonalé: nová strana dostává téma, které ji ponese deset let.</p>
-  <p>Program byl jednoduchý a nesmlouvavý: proti islámu, proti migraci, referendum o vystoupení z EU, „nulová tolerance“ vůči nepřizpůsobivým. Volby 2017 přinesly průlom – 10,6 %, 22 mandátů a pro Okamuru křeslo místopředsedy Sněmovny. Evropské zázemí našel u Marine Le Penové a Geerta Wilderse, které v prosinci 2017 hostil na konferenci v Praze; tento proud krajní pravice se po roce 2024 přelil do frakce Patrioti pro Evropu – tedy do téže rodiny, kde zakotvilo ANO i Motoristé.</p>
+  <p>Program byl jednoduchý a nesmlouvavý: proti islámu, proti migraci, referendum o vystoupení z EU, „nulová tolerance“ vůči nepřizpůsobivým. Volby 2017 přinesly průlom – 10,6 %, 22 mandátů a pro Okamuru křeslo místopředsedy Sněmovny. Evropské zázemí našel u Marine Le Penové a Geerta Wilderse, které v prosinci 2017 hostil na konferenci v Praze; tento proud krajní pravice se po roce 2024 rozdělil mezi několik uskupení. SPD sama v Patriotech pro Evropu, kde zakotvilo ANO, není – její jediný europoslanec Ivan David zasedá ve frakci Evropa suverénních národů.</p>
   <p>Kritika SPD byla od počátku zásadní: odpůrci ji řadí na krajní pravici a soudy i bezpečnostní instituce opakovaně řešily její rétoriku – média připomínají, že Nejvyšší správní soud část kampaně SPD přirovnal k nacistické a komunistické propagandě. Strana to odmítá jako umlčování nepohodlných názorů. Volebně SPD nikdy nepřekročila svůj strop a v roce 2021 stagnovala na 9,6 %.</p>
   <h5>Jak to číst</h5>
   <p>SPD nikdy nevyhrála volby, a přesto změnila českou politiku: témata migrace, referend a „diktátu Bruselu“ vtáhla do hlavního proudu, kde je postupně přebírali jiní. Vliv strany se neměří jen mandáty – a to je možná nejdůležitější poznatek z celé její historie.</p>
@@ -1395,7 +1499,7 @@
   <h2>„Chirurg z dovozu“ před soudem</h2>
   <p class="perex">Předvolební plakáty z roku 2024 s krvavým tmavým „chirurgem z dovozu“ přivedly SPD i jejího předsedu před soud: obžaloba zní podněcování k nenávisti. Kauza se táhne dodnes – a stala se testem hranic politické reklamy.</p>
   <p>Stíhán byl jak Okamura osobně, tak SPD jako právnická osoba – u parlamentní strany bezprecedentní situace. Předchozí Sněmovna Okamuru k trestnímu stíhání vydala; po volbách 2025 mu ale s novým mandátem naskočila nová imunita a Sněmovna s koaliční většinou – které sám předsedá – ho už vydat odmítla. Jeho osobní stíhání je tak přerušeno, dokud drží mandát.</p>
-  <p>Proces s hnutím pokračoval: v červnu 2026 Obvodní soud pro Prahu 1 uznal SPD vinnou z podněcování k nenávisti a uložil jí pokutu tři miliony korun. Rozsudek není pravomocný, SPD se odvolala a avizuje cestu až k Ústavnímu soudu. Okamura verdikt označil za předem připravený a trvá na tom, že plakáty „pojmenovávaly reálné problémy“, nikoli šířily nenávist; státní zástupce naopak mluvil o zavrženíhodné pohnutce a nulové sebereflexi.</p>
+  <p>Proces s hnutím pokračoval: v červnu 2026 Obvodní soud pro Prahu 1 uznal SPD vinnou z podněcování k nenávisti a uložil jí pokutu tři miliony korun. SPD se odvolala – a uspěla. Městský soud v Praze ji 1. září 2026 pravomocně zprostil obžaloby a trest zrušil. Řízení proti Okamurovi je ale samostatné a osvobození hnutí se na ně nepřenáší; jeho vlastní věc zůstává přerušená. Okamura verdikt označil za předem připravený a trvá na tom, že plakáty „pojmenovávaly reálné problémy“, nikoli šířily nenávist; státní zástupce naopak mluvil o zavrženíhodné pohnutce a nulové sebereflexi.</p>
   <h5>Jak to číst</h5>
   <p>Kauza staví proti sobě dva principy: svobodu politického projevu a zákaz podněcování nenávisti. A přidává procesní otázku: má sněmovní většina vydat svého předsedu soudu? Koaliční většina hlasovala proti vydání; kritici v tom vidí ochranu předsedy Sněmovny. Co to znamená pro rovnost před zákonem, si musí každý zodpovědět sám – stejně jako to, kde přesně leží hranice mezi ostrou kampaní a trestným činem.</p>
 </article>
@@ -1451,8 +1555,8 @@
       <article class="artsrc" id="art-j-2022">
 <span class="tag t-rajchl">Jindřich Rajchl · 2022–2023</span>
   <h2>Řečník z Václaváku</h2>
-  <p class="perex">V červnu 2022 zakládá stranu Právo Respekt Odbornost. O tři měsíce později stojí na Václavském náměstí před demonstrací, jakou Česko roky nevidělo – desítky tisíc lidí pod heslem Česko proti bídě.</p>
-  <p>Protest v září 2022 spojil nesourodou koalici: lidi zasažené energetickou krizí a inflací, odpůrce covidových opatření, kritiky sankcí vůči Rusku i podpory Ukrajiny. Rajchl na něm vystoupil jako hlavní řečník a stal se přes noc nejviditelnějším mužem protivládní ulice. Následovala série dalších akcí; na jaře 2023 vedl demonstranty před sídlo vlády s výzvou, aby kabinet Petra Fialy podal demisi.</p>
+  <p class="perex">V červnu 2022 zakládá stranu Právo Respekt Odbornost. Během následujícího roku se stává nejviditelnějším řečníkem protivládní ulice – vrcholem je demonstrace Česko proti bídě 11. března 2023 na Václavském náměstí.</p>
+  <p>Protestní vlna spojila nesourodou koalici: lidi zasažené energetickou krizí a inflací, odpůrce covidových opatření, kritiky sankcí vůči Rusku i podpory Ukrajiny. Rajchl na jejích akcích vystupoval jako řečník – včetně zářijového protestu roku 2022, který pod hlavičkou Česká republika na 1. místě svolal jiný okruh organizátorů. Vlastní akci Česko proti bídě uspořádala jeho strana 11. března 2023; téhož jara vedl demonstranty i před sídlo vlády s výzvou, aby kabinet Petra Fialy podal demisi.</p>
   <p>Tehdejší vláda označila zářijovou demonstraci za akci svolanou proukrajinsky nepřátelskými silami, což organizátoři odmítli jako pokus delegitimizovat nespokojenost lidí. Spor o povahu těchto protestů se nikdy neuzavřel: jedni v nich vidí zdravý projev demokratické nespokojenosti s dopady krize, druzí kanál pro proruské narativy. Doložitelné je, že se jich účastnili lidé z obou popisů.</p>
   <h5>Jak to číst</h5>
   <p>Právo na shromažďování patří k jádru demokracie a početná demonstrace není sama o sobě podezřelá – ať se její hesla komukoli líbí, nebo ne. Zároveň je legitimní ptát se, jaká sdělení z pódia zaznívala a komu prospívala. Kdo chce být fér, musí obojí posuzovat zvlášť.</p>
@@ -1548,7 +1652,7 @@
   <p class="perex">Říjen 2025: čerstvě zvolený poslanec Turek míří na ministerstvo zahraničí. Pak Deník N zveřejní archiv desítek jeho údajných příspěvků z let 2009 až 2021 – otevřeně rasistických, homofobních a sexistických. Začíná nejostřejší ústavní spor éry.</p>
   <p>Turek, který dovedl Motoristy ze středočeské kandidátky do Sněmovny (zvolením mu zanikl mandát europoslance), vše razantně popřel: příspěvky prý nenapsal, jde o „odpornou dehonestaci“ a pomstu za volební výsledek. Strana podala trestní oznámení na novináře; Turek se zároveň obecně omluvil za „patnáct dvacet let stará vyjádření“. Veřejnost podepisovala petice proti jeho jmenování a koalice ho přesunula z diplomacie na ministerstvo životního prostředí.</p>
   <p>Prezident Pavel ho však odmítl jmenovat i tam. V bezprecedentním dopise premiérovi napsal, že Turek „opakovaně prokazoval nedostatek respektu vůči právnímu řádu“ a že prezident musí chránit ústavní hodnoty včetně odmítnutí totalitních ideologií; zmínil i nesrovnalosti v majetkovém přiznání a údajné vyhrožování zaměstnanci ambasády. Babiš přiznal, že prezidenta hodinu přesvědčoval, kompetenční žalobu ale nepodal; Turek ohlásil žalobu na ochranu osobnosti a později od ní ustoupil. Mezitím na výročí 17. listopadu prohlásil, že revoluce „byla řízena KGB“, a na Národní třídě ho část přítomných vypískala.</p>
-  <p>Rozuzlení přišlo po částech: ministrem životního prostředí se v únoru 2026 stal Igor Červený a Turek dostal funkci vládního zmocněnce pro klimatickou politiku a Green Deal. V srpnu 2026 policie případ uzavřela – a její závěry byly pro Turka výrazně nepříznivé. Kriminalisté z pražského odboru extremismu prověřili 85 příspěvků z let 2010 až 2017, osm z nich vyhodnotili jako trestné: všechny podle nich naplnily znaky podněcování k nenávisti, dva nejstarší i schvalování trestného činu. Gesto z videa z roku 2015 označili za nacistický pozdrav a projev sympatií k hnutí potlačujícímu práva a svobody. Pravost příspěvků měli za prokázanou, opírali se o metadata, IP adresy i svědky a Turkovu obhajobu o napadeném účtu označili za účelovou. Stíhat ho přesto nelze – pětiletá promlčecí lhůta uplynula na konci roku 2022.</p>
+  <p>Rozuzlení přišlo po částech: vládním zmocněncem pro klimatickou politiku a Green Deal byl Turek jmenován 12. ledna 2026 a ministrem životního prostředí se až v únoru stal Igor Červený. V srpnu 2026 policie případ uzavřela – a její závěry byly pro Turka výrazně nepříznivé. Kriminalisté z pražského odboru extremismu prověřili 85 příspěvků z let 2010 až 2017, osm z nich vyhodnotili jako trestné: všechny podle nich naplnily znaky podněcování k nenávisti, dva nejstarší i schvalování trestného činu. Gesto z videa z roku 2015 označili za nacistický pozdrav a projev sympatií k hnutí potlačujícímu práva a svobody. Pravost příspěvků měli za prokázanou, opírali se o metadata, IP adresy i svědky a Turkovu obhajobu o napadeném účtu označili za účelovou. Stíhat ho přesto nelze – pětiletá promlčecí lhůta uplynula na konci roku 2022.</p>
   <p>Rozhodnutí o odložení nabylo právní moci 1. srpna 2026 a část Turkových příznivců je vyložila jako očištění. Obvodní státní zastupitelství pro Prahu 4 proto vydalo vysvětlení, že takový výklad závěrům policie neodpovídá. Dozorující žalobce zároveň dodal podstatnou výhradu opačným směrem: skutečnost, že by policie mohla stíhání zahájit, kdyby věc nebyla promlčená, ještě neznamená, že je Turek vinen – o tom by rozhodoval soud po komplexním dokazování, k němuž nikdy nedošlo. Turek závěry odmítá a zdůrazňuje, že žádný soud neproběhl.</p>
   <h5>Jak to číst</h5>
   <p>Kauza nechává otevřené dvě otázky a vyplatí se držet je oddělené. První je skutková: psal to? Policie odpověděla, že ano, a část příspěvků označila za trestné – stíhání ale zabránilo promlčení, takže vina nikdy nebyla vyslovena soudem. To je zásadní rozdíl, na který upozorňuje i státní zastupitelství: neproběhlo dokazování před soudem, ale ani očištění. Turek autorství dál popírá. Druhá je ústavní: smí prezident odmítnout navrženého ministra? Žaloby, které to mohly rozsoudit, nakonec nikdo nepodal – precedens tak vznikl silou faktu, nikoli práva. Obě nedopovězené odpovědi si česká politika ponese dál.</p>
@@ -1556,7 +1660,7 @@
     </details>
     <details class="arch-person" style="--pc:#1E6E62">
       <summary><i></i>Petr Macinka <span class="cnt">5</span></summary>
-      <p class="arch-meta">* 18. 8. 1978, Hodonín · mluvčí Hradu → muž Institutu V. Klause → šéf Motoristů → ministr zahraničí</p>
+      <p class="arch-meta">* 18. 8. 1978, Hodonín · tiskový odbor Hradu → muž Institutu V. Klause → šéf Motoristů → ministr zahraničí</p>
       <article class="artsrc" id="art-m-1978">
 <span class="tag t-macinka">Petr Macinka · 1978–2007</span>
   <h2>Z vinařské vsi do líhně pravice</h2>
@@ -1569,7 +1673,7 @@
       <article class="artsrc" id="art-m-2008">
 <span class="tag t-macinka">Petr Macinka · 2008–2022</span>
   <h2>Hlas Hradu, aparát institutu</h2>
-  <p class="perex">V letech 2008–2013 vede Macinka tiskovou službu Kanceláře prezidenta republiky za Václava Klause. Po konci Klausova mandátu přechází do jeho institutu, kde stráví dalších dvanáct let jako manažer.</p>
+  <p class="perex">V letech 2008–2013 vede Macinka tiskové oddělení Kanceláře prezidenta republiky a je zástupcem ředitele tiskového odboru za Václava Klause – nikoli oficiálním mluvčím prezidenta. Po konci Klausova mandátu přechází do jeho institutu, kde stráví dalších dvanáct let jako manažer.</p>
   <p>Hradní léta znamenala komunikační školu v nejtěžších podmínkách: Klausovo druhé funkční období provázely spory o Lisabonskou smlouvu, ostré střety s vládami i kontroverzní novoroční amnestie. Macinka se naučil hájit nehájitelné pozice, řídit vztahy s nepřátelskými médii a myslet ve strategických rámcích – dovednosti, které později beze zbytku přenese do stranické politiky.</p>
   <p>Institut Václava Klause pak fungoval jako ideová dílna: kritika Evropské unie, klimatické politiky a migrace, obhajoba „normálního světa“ proti progresivismu. Macinka v něm nebyl jen úředníkem – spolupodepisoval publikace a formuloval postoje. Program pozdějších Motoristů tak vznikal roky předtím, než strana existovala; stačilo mu najít obal a publikum.</p>
   <h5>Jak to číst</h5>
@@ -1598,7 +1702,7 @@
   <h2>Do Černínského paláce</h2>
   <p class="perex">Tři roky po založení strany skládá Macinka slib poslance, a v prosinci 2025 se stává vicepremiérem a ministrem zahraničí. Rychlejší cestu od registrace strany k řízení diplomacie česká politika nepamatuje.</p>
   <p>Motoristé proměnili 6,77 % a 13 mandátů v silnou koaliční pozici. Macinka si vybral Černínský palác – navzdory nulové diplomatické zkušenosti, což kritika opakuje dodnes; sám za priority prohlašuje ekonomickou diplomacii, podporu exportu a revizi klimatických závazků na evropské úrovni. Přechodně řídil i ministerstvo životního prostředí, než ho v únoru převzal Igor Červený.</p>
-  <p>Jeho ministrování však zatím definují střety s Hradem. Nejprve neúspěšný boj za Turkovo jmenování – včetně chvíle, kdy novinářce Deníku N zakázal vstup na tiskovou konferenci. Poté spor o summit NATO: vláda v červnu 2026 nezařadila prezidenta do delegace do Ankary, Pavel na ni podal historicky první prezidentskou kompetenční žalobu a Ústavní soud předběžným opatřením uložil vládě, Macinkovi i jeho ministerstvu prezidentovu účast zajistit. Dva soudci nesouhlasili a o samotném rozsahu prezidentových pravomocí soud teprve rozhodne – spor tedy zdaleka nekončí.</p>
+  <p>Jeho ministrování však zatím definují střety s Hradem. Nejprve neúspěšný boj za Turkovo jmenování – včetně chvíle, kdy novinářce Deníku N zakázal vstup na tiskovou konferenci. Poté spor o summit NATO: vláda v červnu 2026 nezařadila prezidenta do delegace do Ankary, Pavel na ni podal historicky první prezidentskou kompetenční žalobu a Ústavní soud předběžným opatřením uložil vládě, Macinkovi i jeho ministerstvu prezidentovu účast zajistit. Šlo o prozatímní opatření; dva soudci nesouhlasili a o samotném rozsahu prezidentových pravomocí soud teprve rozhodne – spor tedy zdaleka nekončí.</p>
   <h5>Jak to číst</h5>
   <p>Macinka dovedl klausovský ideový projekt tam, kam se jeho učitel po roce 2013 už nedostal: k výkonné moci. Otázka, kterou jeho éra otevírá, je ústavní i praktická – kdo mluví za Česko navenek? Odpověď dá Ústavní soud a příští volby; do té doby je Macinka nejviditelnějším symbolem kohabitace vedené jako poziční válka.</p>
 </article>
@@ -1611,7 +1715,7 @@
   <h2>Do politiky oklikou</h2>
   <p class="perex">Eva Decroix se narodila 26. května 1982 v Ostravě a vyrostla v Jihlavě. Do vrcholné politiky přišla později a jinudy než většina jejích kolegů – a v prostředí, kde ženy dodnes patří k výjimkám.</p>
   <p>Rodina se přestěhovala na Vysočinu, když byla malá; v Jihlavě vychodila gymnázium a odešla do Prahy studovat učitelství češtiny a francouzštiny. Do politiky ji nepřivedla rodinná tradice, byznys ani sláva – její dráha povede oklikou přes Francii a advokacii, a většina země o ní proto poprvé uslyší až po její čtyřicítce.</p>
-  <p>Generačně patří k Turkovi: komunismus zažila jen jako batole a formovala ji devadesátá léta. Na rozdíl od něj ale nezvolila cestu pozornosti – jejím kapitálem se stane kvalifikace. V tomto smyslu je protipólem influencerského modelu politické kariéry, který se v české politice prosadil souběžně s ní.</p>
+  <p>Generačně patří k Turkovi: v listopadu 1989 jí bylo sedm let a formovala ji devadesátá léta. Na rozdíl od něj ale nezvolila cestu pozornosti – jejím kapitálem se stane kvalifikace. V tomto smyslu je protipólem influencerského modelu politické kariéry, který se v české politice prosadil souběžně s ní.</p>
   <h5>Jak to číst</h5>
   <p>Že jsou ženy mezi nejvlivnějšími českými politiky spíš výjimkou, není náhoda – odráží to dlouhodobé složení domácí vrcholné politiky. Čtenář může její dráhu číst i jako sondu do toho, jak vypadá cesta nahoru v prostředí, kde jsou ženy spíš výjimkou.</p>
 </article>
@@ -1638,7 +1742,7 @@
   <h2>Rychlý výstup v ODS</h2>
   <p class="perex">V říjnu 2021 je zvolena poslankyní za koalici SPOLU na Vysočině. O necelé tři roky později už je místopředsedkyní ODS – jeden z nejrychlejších vnitrostranických vzestupů Fialovy éry.</p>
   <p>Ve Sněmovně se profiluje právní agendou: ústavně-právní a zahraniční výbor, pozice první místopředsedkyně poslaneckého klubu po boku Marka Bendy, rozvodová novela. Přidává i zahraniční rozměr – z její iniciativy vzniká podvýbor pro podporu demokracie a lidských práv ve světě a v roce 2023 spolupořádá pražský summit meziparlamentní aliance k Číně o postavení Tchaj-wanu a Hongkongu.</p>
-  <p>Na ostravském kongresu v dubnu 2024 je zvolena místopředsedkyní strany; sama se uvedla slovy, že není „žádná křehká květinka, která neustojí silné názory“. Pro ODS znamenala dvojí signál: omlazení a ženskou tvář ve vedení, které obojím dlouhodobě nedisponovalo. Kritici namítali, že jde o rychlý kariérní postup bez velkých politických bitev. Rok 2025 jim odpověděl ironicky – bitvu dostala, a to tu nejtěžší, jakou strana v té době měla.</p>
+  <p>Na ostravském kongresu v dubnu 2024 je zvolena místopředsedkyní strany, kterou zůstane do kongresu v lednu 2026; sama se uvedla slovy, že není „žádná křehká květinka, která neustojí silné názory“. Pro ODS znamenala dvojí signál: omlazení a ženskou tvář ve vedení, které obojím dlouhodobě nedisponovalo. Kritici namítali, že jde o rychlý kariérní postup bez velkých politických bitev. Rok 2025 jim odpověděl ironicky – bitvu dostala, a to tu nejtěžší, jakou strana v té době měla.</p>
   <h5>Jak to číst</h5>
   <p>Vzestup Decroix ukazuje, jak Fialova ODS pěstovala nástupnickou generaci: expertní profil, region, loajalita, žádné skandály. Zda jde o zdravou kádrovou práci, nebo o výběr podle bezkonfliktnosti, prověří vždy až krize. Ta její přišla v červnu 2025.</p>
 </article>
@@ -1659,7 +1763,7 @@
 <span class="tag t-klempir">Oto Klempíř · 1963–1983</span>
   <h2>Kluk z papíren</h2>
   <p class="perex">Oto Klempíř se narodil 20. května 1963 v Kyjově a vyrostl v Moravském Písku. Jeho dráha začíná tam, kde politické životopisy obvykle nezačínají: v kultuře.</p>
-  <p>Po gymnáziu odešel v roce 1982 do Prahy; živil se jako dělník v pražských papírnách a zpíval s rockovou skupinou Garáž. Pohyboval se na pomezí oficiální a „závadové“ kultury – ve světě, který normalizační režim bedlivě sledoval, protože rock a punk považoval za úpadkový západní vliv.</p>
+  <p>Po gymnáziu odešel v roce 1982 do Prahy; živil se jako dělník v pražských papírnách, v letech 1985 až 1989 podle vládního životopisu pracoval v podniku zahraničního obchodu Čechofracht a zpíval s rockovou skupinou Garáž. Pohyboval se na pomezí oficiální a „závadové“ kultury – ve světě, který normalizační režim bedlivě sledoval, protože rock a punk považoval za úpadkový západní vliv.</p>
   <p>Právě tato pozice – mladík z okraje hudební scény, bez zázemí a bez moci – se ukáže jako osudová. Zatímco Babiše si režim hýčkal jako kádr zahraničního obchodu a Pavla formoval v důstojnických školách, Klempíře si Státní bezpečnost vybrala jako oči a uši v prostředí, kterému sama nerozuměla. Následující kapitola patří k nejtemnějším v jeho životopise.</p>
   <h5>Jak to číst</h5>
   <p>Klempířovo mládí připomíná, že normalizace neměla jen kádry a disidenty – měla především šedou zónu lidí, kteří chtěli hrát muziku a přežít. Jak snadno se z takové pozice sklouzlo ke kolaboraci, ukazuje jeho další příběh; a jak z ní vedla cesta k revolučnímu funku, ten hned následující.</p>
@@ -1669,7 +1773,7 @@
   <h2>Krycí jméno Olda</h2>
   <p class="perex">V roce 1984 získává Státní bezpečnost jednadvacetiletého Klempíře ke spolupráci. Úkol: donášet z prostředí „závadové mládeže“ kolem punkové a rockové scény. Svazek nese krycí jméno Olda.</p>
   <p>Fakta, jak plynou z Archivu bezpečnostních složek: spolupráce trvala zhruba rok, Klempíř byl podle spisů aktivní a StB si jeho zprávy pochvalovala. V lednu 2026 – už za jeho ministrování – odhalili Reportéři ČT konkrétní dopady: udání ovlivnila osudy skutečných lidí. Jeden z nich, Martin Semrád, kvůli němu podle svých slov přišel o studium. Klempíř se mu omluvil; Semrád omluvu odmítl s tím, že některé křivdy se odpouštět nemají.</p>
-  <p>Klempíř přitom spolupráci přiznal sám a dávno před vstupem do politiky – v rozhovorech ji označil za svou noční můru: podepsal prý, protože ho „vystrašili k smrti“, a mluví o sobě jako o „divném robotovi, který podepsal, co chtěli“. Přiznání mu i kritici přičítají k dobru; zároveň připomínají, že spolupráci bylo možné odmítnout – a že jeho verze donedávna vynechávala to podstatné: že donášel na konkrétní lidi.</p>
+  <p>Klempíř přitom spolupráci přiznal sám a dávno před vstupem do politiky – veřejně o ní mluvil už v prosinci 2019 – v rozhovorech ji označil za svou noční můru: podepsal prý, protože ho „vystrašili k smrti“, a mluví o sobě jako o „divném robotovi, který podepsal, co chtěli“. Přiznání mu i kritici přičítají k dobru; zároveň připomínají, že spolupráci bylo možné odmítnout – a že jeho verze donedávna vynechávala to podstatné: že donášel na konkrétní lidi.</p>
   <h5>Jak to číst</h5>
   <p>Potkávají se tu tři strategie zacházení s minulostí: Babiš („Bureš“) spolupráci popírá a soudí se o ni, Pavel své členství ve straně označuje za chybu a konformismus, Klempíř („Olda“) přiznává a omlouvá se. Čtenář může vážit, co je pro důvěru ve veřejnou osobu důležitější – co kdo v osmdesátých letech udělal, nebo jak se k tomu o čtyřicet let později staví. A také, zda má oběť povinnost omluvu přijmout.</p>
 </article>
@@ -1677,7 +1781,7 @@
 <span class="tag t-klempir">Oto Klempíř · 1989–2025</span>
   <h2>Kapela ze 17. listopadu</h2>
   <p class="perex">J.A.R. – Jednotka Akademického Rapu – vzniká přesně 17. listopadu 1989, v den, kdy na Národní třídě začíná konec režimu. Málokterá kapela má v rodném listě datum revoluce; Klempíř ji jako frontman a textař povede šestatřicet let.</p>
-  <p>J.A.R. přinesla do české hudby funk, rap a jazykově vybroušenou ironii a stala se kultem několika generací. Klempíř vedle toho napsal stovky textů pro jiné interprety – Dana Bártu, Olympic či Kamila Střihavku – hudebně se podílel na filmech Snowboarďáci a Rafťáci, jako scenárista na snímcích Czech Made Man a Hranaři a na stanici Vltava provázel pořadem Sedmé nebe o americkém funku a soulu.</p>
+  <p>J.A.R. přinesla do české hudby funk, rap a jazykově vybroušenou ironii a stala se kultem několika generací; Klempíř v ní byl jedním z několika frontmanů a autorů. Vedle toho napsal stovky textů pro jiné interprety – Dana Bártu, Olympic či Kamila Střihavku – hudebně se podílel na filmech Snowboarďáci a Rafťáci, jako scenárista na snímcích Czech Made Man a Hranaři a na stanici Vltava provázel pořadem Sedmé nebe o americkém funku a soulu.</p>
   <p>Datum založení dodalo kapele image svobodného dítěte revoluce – a právě proto byl pozdější rozchod tak symbolický. Když Klempíř v roce 2025 oznámil kandidaturu za Motoristy, kapela vydala prohlášení, že jejich „další společné životní cesty jsou bohužel neslučitelné“. Muž, který spoluzaložil kapelu v den revoluce, z ní odešel kvůli politice – podle vlastních slov vyhazovem, který nečekal.</p>
   <h5>Jak to číst</h5>
   <p>J.A.R. je Klempířův nesporný kulturní kapitál – mezi vojáky, právníky a byznysmeny v politice je to on, kdo přichází z kultury. Otázka, kterou jeho hudební dráha klade: opravňuje umělecká autorita k řízení kulturní politiky státu? Rok 2026 na ni dává překvapivě bouřlivou odpověď.</p>
@@ -1752,9 +1856,9 @@
       <article class="artsrc" id="art-l-2018b">
   <span class="tag t-mala">Taťána Malá · Červenec 2018</span>
   <h2>Třináct dní</h2>
-  <p class="perex">Krátce po jmenování zveřejnila média rozbory jejích dvou diplomových prací. Obě podle nich obsahovaly rozsáhlé pasáže převzaté bez uvedení zdroje. 10. července 2018, třináctý den ve funkci, Taťána Malá rezignovala.</p>
+  <p class="perex">Krátce po jmenování zveřejnila média rozbory jejích dvou diplomových prací. Obě podle nich obsahovaly rozsáhlé pasáže převzaté bez uvedení zdroje. 10. července 2018, po třinácti dnech ve funkci, Taťána Malá rezignovala.</p>
   <p>Šlo o obě práce najednou – právní z Panevropské vysoké školy i tu o chovu králíků z Mendelovy univerzity. Malá plagiátorství odmítla a připustila pouze pochybení v citacích; obvinění označila za kampaň. V akademickém prostředí vznikla petice požadující její odstoupení a někteří členové Legislativní rady vlády, tedy orgánu, jemuž předsedala, pohrozili vlastní rezignací, pokud ve funkci zůstane. Premiér Babiš situaci komentoval slovy, že jde o tvrzení proti tvrzení, a nechal rozhodnutí na ní.</p>
-  <p>Rezignovala po dvou týdnech a nahradil ji Jan Kněžínek. Ve funkci nestihla prosadit nic; do dějin vstoupila jako nejkratší ministerské působení novodobé éry. Poslanecký mandát si ponechala.</p>
+  <p>Rezignovala po dvou týdnech a nahradil ji Jan Kněžínek. Ve funkci nestihla prosadit nic. Šlo o mimořádně krátké působení, nikoli však o nejkratší v novodobé historii – Karolína Peake vedla ministerstvo obrany od 12. do 20. prosince 2012. Poslanecký mandát si ponechala.</p>
   <h5>Jak to číst</h5>
   <p>Případ se dá číst přísně i shovívavě a obě čtení mají oporu. Přísné: člověk, který má vést resort spravedlnosti a posuzovat kvalitu zákonů, musí zvládnout citační pravidla, a to dvakrát. Shovívavé: rezignovala rychle, což se v české politice stává zřídka, a plagiátorské kauzy tehdy zasáhly politiky napříč stranami i řadu nepolitických absolventů – problém tedy nebyl jen její, ale i systému, který takové práce léta propouštěl. Co z toho váží víc, ať posoudí čtenář; jisté je, že akademická minulost přestala být od té doby v české politice okrajovým tématem.</p>
 </article>
@@ -1829,17 +1933,17 @@
   <span class="tag t-vachatova">Natálie Vachatová · Leden 2026</span>
   <h2>Poradkyní premiéra</h2>
   <p class="perex">Od ledna 2026 je poradkyní předsedy vlády Andreje Babiše pro oblast svobody projevu. Jmenování vyvolalo vlnu kritiky, petici za odvolání – a také útoky, které samotné přesáhly hranici věcného sporu.</p>
-  <p>Smlouvu má na maximálně osmdesát hodin měsíčně, což při plném využití odpovídá odměně přes devadesát tisíc korun. Kritici, včetně autorů petice, ji označili za bezpečnostní riziko v bezprostřední blízkosti premiéra a odkazovali na její starší postoje i na bratrovo podnikání v Rusku. Žádný bezpečnostní orgán ale takové hodnocení nevydal a Vachatová není z ničeho obviněna.</p>
+  <p>Smlouva jí umožňuje odpracovat nejvýše osmdesát hodin měsíčně při sazbě 1 150 korun za hodinu, tedy nejvýše 92 tisíc korun měsíčně; kolik reálně vyfakturovala, úřad nesdělil. Kritici, včetně autorů petice, ji označili za bezpečnostní riziko v bezprostřední blízkosti premiéra a odkazovali na její starší postoje i na bratrovo podnikání v Rusku. Z veřejně dostupných podkladů přitom nevyplývá, že by takové hodnocení vydal některý bezpečnostní orgán, a Vachatová není z ničeho obviněna.</p>
   <p>Souběžně se na ni na sociálních sítích snesla vlna vulgarit a přání smrti. Sama uvedla, že má obavy o bezpečnost rodiny, věc předala právnímu zástupci a hodlá nepravdivá tvrzení napadnout soudně. Tato část příběhu bývá v komentářích opomíjena, patří k němu ale stejně jako obvinění samotná.</p>
   <h5>Jak to číst</h5>
   <p>Případ je dobrým testem toho, kde končí legitimní veřejná kontrola a začíná štvanice. Ptát se, kdo radí premiérovi a s jakou minulostí, je nejen přípustné, ale nutné – jde o veřejnou funkci placenou z veřejných peněz. Přání smrti a útoky na rodinu do téhle debaty nepatří a poškozují i ty, kdo mají věcné argumenty. Obojí se v jejím případě odehrálo současně.</p>
 </article>
       <article class="artsrc" id="art-n-2026b">
   <span class="tag t-vachatova">Natálie Vachatová · 2026</span>
-  <h2>Poradkyně, o jejíž práci se nesmí mluvit</h2>
-  <p class="perex">Co přesně dělá poradkyně premiéra pro svobodu projevu, odmítá vláda sdělit i na základě žádosti podle informačního zákona. Veřejnost se o její agendě dozvěděla jen díky dvěma únikům do médií.</p>
+  <h2>Práce, kterou úřad odmítl popsat</h2>
+  <p class="perex">Když se novináři na základě informačního zákona zeptali, co přesně poradkyně premiéra pro svobodu projevu dělá, Úřad vlády odpověděl, že žádný program ani evidenci její činnosti nemá k dispozici. Veřejnost se o její agendě dozvěděla jen díky dvěma únikům do médií.</p>
   <p>První přišel v březnu 2026, kdy Seznam Zprávy popsaly, že Vachatová upravovala dokument s tezemi zákona o „zahraničních vazbách“ namířeného proti neziskovým organizacím – návrhu, který připravovali koaliční poslanci Jindřich Rajchl, Libor Vondráček a Radek Vondráček. Svou roli potvrdila slovy, že ji premiér pověřil, aby se na to podívala. Návrh v tehdejší podobě neprošel a koalice přípravu zákona svěřila některému z ministerstev. Druhý únik popsal v květnu týdeník Respekt: Vachatová za Úřad vlády připomínkovala plán priorit Česka pro čerpání evropských peněz a navrhovala z materiálu ministerstva pro místní rozvoj škrty.</p>
-  <p>Vláda k náplni její práce sdělila jen to, že využívá kancelář a jaký má rozsah smlouvy. Právě tahle neprůhlednost je podstatou výtky, která je nezávislá na jejích názorech: nezvolená poradkyně se podílí na přípravě zákona a na vyjednávání o evropských penězích, aniž by veřejnost směla vědět, co má na starosti.</p>
+  <p>Úřad vlády k náplni její práce sdělil jen to, že využívá kancelář a jaký má rozsah smlouvy; požadovanou evidenci činnosti neposkytl. Právě tahle neprůhlednost je podstatou výtky, která je nezávislá na jejích názorech: nezvolená poradkyně se podílí na přípravě zákona a na vyjednávání o evropských penězích, aniž by veřejnost směla vědět, co má na starosti.</p>
   <h5>Jak to číst</h5>
   <p>Tady se vyplatí oddělit dvě věci, které se v debatě mísí. Otázka „má tahle konkrétní osoba radit premiérovi?“ je politická a odpověď na ni závisí na tom, jak kdo váží její minulost. Otázka „smí být náplň práce placeného poradce tajná?“ je systémová a týkala by se kohokoli v téže funkci. Druhá je z hlediska fungování státu důležitější – a je to zároveň ta, na kterou vláda dosud neodpověděla.</p>
 </article>
@@ -1868,7 +1972,7 @@
       <article class="artsrc" id="art-u-2014">
 <span class="tag t-bartha">Tünde Bartha · 2014–2021</span>
   <h2>Žena, která řídí aparát</h2>
-  <p class="perex">Od roku 2014 řídí kabinet ministra financí Babiše, v prosinci 2017 s ním přechází do Strakovy akademie a od června 2018 stojí v čele celého Úřadu vlády. Veřejnost ji přesto téměř nezná – první rozhovor poskytne až v roce 2021.</p>
+  <p class="perex">Od roku 2015 řídí kabinet ministra financí Babiše, v prosinci 2017 s ním přechází do Strakovy akademie a od června 2018 stojí v čele celého Úřadu vlády. Veřejnost ji přesto téměř nezná – první rozhovor poskytne až v roce 2021.</p>
   <p>Její práce je definicí zákulisí: premiérův diář, chod úřadu, státní návštěvy. Během tří týdnů zorganizovala Babišovu cestu do Bílého domu za Trumpem, připravovala jednání s Merkelovou i Macronem a její tým dostal na starost i státní rozloučení s Karlem Gottem. Drží bezpečnostní prověrku na stupeň přísně tajné – nejvyšší možnou, jakou se v téže době nemohl vykázat ani hradní kancléř Mynář.</p>
   <p>Babiš o ní v knize napsal, že je jeho „pravá ruka“, volá jí i v noci a – vzácné přiznání – dokáže ji poslechnout: „ostrá a urputná ženská“, která se s ním umí hádat. Ona sama v jediném rozhovoru popsala režim, v němž je s premiérem častěji než s manželem, s jedinou svatou výjimkou: čtrnáct dní v červenci s dcerou. Kritici v takové koncentraci neformálního vlivu vidí systémové riziko; obhájci běžné fungování každé exekutivy, jen výjimečně dobře odvedené.</p>
   <h5>Jak to číst</h5>
@@ -1894,7 +1998,7 @@
 </article>
     </details>
     <details class="arch-person arch-shared">
-      <summary><i></i>Průsečíky — události, kde se dráhy protínají <span class="cnt">7</span></summary>
+      <summary><i></i>Průsečíky — události, kde se dráhy protínají <span class="cnt">10</span></summary>
       <article class="artsrc" id="art-s-1998">
   <span class="tag t-shared">Průsečík · 1998–2002</span>
   <h2>Opoziční smlouva: dva rivalové si rozdělili zemi</h2>
@@ -1914,13 +2018,13 @@
   <p>Precedens přežil svého tvůrce. Když v prosinci 2025 stál před stejnou otázkou Petr Pavel, argumentoval prakticky stejně jako Zeman: trestní stíhání není ústavní překážka. Rozdíl byl v tom, co si k tomu přidal – veřejnou podmínku vysvětlit řešení střetu zájmů. Zda jde o posun k větší kontrole, nebo jen o zdvořilejší formu téhož ustoupení, je otázka, kterou tato osa nechává otevřenou.</p>
 </article>
       <article class="artsrc" id="art-s-2021">
-<span class="tag t-shared">Průsečík · Prosinec 2021</span>
+<span class="tag t-shared">Průsečík · Listopad 2021</span>
   <h2>Plexisklo v Lánech</h2>
   <p class="perex">28. listopadu 2021 jmenoval těžce nemocný prezident nového premiéra přes průhlednou stěnu. Fotografie obletěla svět jako symbol podivné doby – a zachytila okamžik, kdy se moc v zemi předávala mezi třemi muži, z nichž jeden byl v nemocnici, druhý právě prohrál a třetí čtyři roky čekal.</p>
-  <p>Volby na začátku října 2021 skončily nejtěsněji v novodobé historii: ANO získalo 27,1 procenta, koalice SPOLU 27,8. Den po sečtení hlasů skončil Miloš Zeman ve vážném stavu na jednotce intenzivní péče; teprve později vyšlo najevo, že šlo mimo jiné o jaterní cirhózu. Senát zahájil kroky k případnému zbavení prezidenta výkonu funkce podle článku 66 ústavy – poprvé v dějinách samostatné republiky.</p>
+  <p>Volby na začátku října 2021 skončily nejtěsněji v novodobé historii: ANO získalo 27,1 procenta, koalice SPOLU 27,8. Den po sečtení hlasů skončil Miloš Zeman ve vážném stavu na jednotce intenzivní péče; teprve později vyšlo najevo, že šlo mimo jiné o jaterní cirhózu. Senát zahájil kroky k případnému přenesení výkonu prezidentových pravomocí podle článku 66 ústavy – nešlo o zánik mandátu – poprvé v dějinách samostatné republiky.</p>
   <p>Zeman se z nemocnice vrátil právě včas, aby ústavní krizi odvrátil. Jmenování Petra Fialy proběhlo v lánském zámku za bezpečnostním boxem, protože prezident měl navíc covid. Andrej Babiš, který do poslední chvíle zpochybňoval, zda většina pěti stran vydrží, předal úřad bez obstrukcí – a odešel do opozice, z níž se po čtyřech letech vrátil silnější.</p>
   <h5>Jak to číst</h5>
-  <p>Prosinec 2021 je nejlepším dokladem, jak křehké jsou ústavní zvyklosti, když selže zdraví jednoho člověka. Země týdny nevěděla, kdo a kdy jmenuje vládu, a informace o prezidentově stavu se dávkovaly. Zastánci Zemana upozorňují, že nakonec svou ústavní povinnost splnil. Kritici, že celá epizoda ukázala, jak málo je systém připraven na okamžik, kdy hlava státu nemůže rozhodovat – a že se od té doby nezměnilo prakticky nic.</p>
+  <p>Podzim 2021 je nejlepším dokladem, jak křehké jsou ústavní zvyklosti, když selže zdraví jednoho člověka. Země týdny nevěděla, kdo a kdy jmenuje vládu, a informace o prezidentově stavu se dávkovaly. Zastánci Zemana upozorňují, že nakonec svou ústavní povinnost splnil. Kritici, že celá epizoda ukázala, jak málo je systém připraven na okamžik, kdy hlava státu nemůže rozhodovat – a že se od té doby nezměnilo prakticky nic.</p>
 </article>
       <article class="artsrc" id="art-s-2023">
 <span class="tag t-shared">Průsečík · Leden 2023</span>
@@ -1936,7 +2040,7 @@
   <h2>Volby, které otočily zemi</h2>
   <p class="perex">Ve dnech 3. a 4. října 2025 rozhodli voliči o konci jedné éry a začátku druhé. ANO zvítězilo s 34,5 procenta, koalice SPOLU získala 23,4 – a do Sněmovny poprvé vstoupila strana postavená kolem influencera a automobilů.</p>
   <p>Kampaň se vedla o životní náklady. Andrej Babiš postavil vše na drahotě a na tezi, že se vláda starala víc o Ukrajinu než o vlastní lidi; Petr Fiala nabízel bilanci zvládnutých krizí, kterou většina voličů odmítla jako vzdálenou jejich účtům za energie. Vládní tábor navíc těsně před volbami zasáhla bitcoinová kauza ministerstva spravedlnosti, kterou od června hasila Eva Decroix.</p>
-  <p>Výsledek vynesl do Sněmovny sestavu, jakou země neznala. Tomio Okamura dovedl SPD k dalšímu mandátovému zisku a stal se předsedou Sněmovny. Motoristé Petra Macinky překonali pětiprocentní hranici a získali třináct poslanců; jejich kandidátky vedly nestranické tváře – Filip Turek ve středních Čechách a Oto Klempíř v Plzeňském kraji, kde strana získala přes sedm procent. Fiala uznal porážku ještě volební noc a oznámil, že skončí v čele ODS. Třetí skončil STAN Víta Rakušana s 11,23 procenta, který ztratil třetinu mandátů.</p>
+  <p>Výsledek vynesl do Sněmovny sestavu, jakou země neznala. Tomio Okamura dovedl SPD k dalšímu mandátovému zisku a stal se předsedou Sněmovny. Motoristé Petra Macinky překonali pětiprocentní hranici a získali třináct poslanců; jejich kandidátky vedly nestranické tváře – Filip Turek ve středních Čechách a Oto Klempíř v Plzeňském kraji, kde strana získala přes sedm procent. Fiala uznal porážku ještě volební noc a 7. října oznámil, že post předsedy ODS nebude obhajovat; v lednu 2026 ho vystřídal Martin Kupka. Třetí skončil STAN Víta Rakušana s 11,23 procenta, který ztratil třetinu mandátů.</p>
   <p>Podoba kandidátek přitom sama o sobě vypovídá o proměně české pravice a protestní scény. SPD nešla do voleb sama: na jejích listinách kandidovali i lidé z Trikolóry, Svobodných a strany PRO, jejíž předseda Jindřich Rajchl dostal v Moravskoslezském kraji přes 14 tisíc přednostních hlasů a předstihl v nich i Tomia Okamuru. Uspořádání se nakonec řešilo i u Ústavního soudu, který stížnost na nepřiznanou koalici těsně před volbami odmítl projednat.</p>
   <h5>Jak to číst</h5>
   <p>Volby 2025 potvrdily vzorec, který česká politika opakuje od roku 2013: kdo nabídne srozumitelný příběh o zapomenutých lidech proti elitám, vyhraje nad tím, kdo nabízí bilanci. Otevřená otázka zní, zda šlo o odmítnutí konkrétní vlády, nebo o hlubší posun k politice postavené na hnutích jednoho muže a na tvářích ze sociálních sítí. Odpověď dá teprve příští volební cyklus.</p>
@@ -1963,8 +2067,8 @@
 <span class="tag t-shared">Průsečík · Léto 2026</span>
   <h2>Spor o Ankaru</h2>
   <p class="perex">Kdo zastupuje Českou republiku na summitu NATO – prezident, nebo vláda? Otázka, kterou ústava neřeší jednoznačně, dovedla v létě 2026 zemi k historicky první kompetenční žalobě hlavy státu proti vlastní vládě.</p>
-  <p>Vláda Andreje Babiše rozhodla, že delegaci na summit do Ankary povede premiér, a ministerstvo zahraničí Petra Macinky prezidenta do delegace nezařadilo. Petr Pavel argumentoval ustálenou praxí všech svých předchůdců i tím, že hlava státu je vrchním velitelem ozbrojených sil. Když jednání selhala, podal ke Kompetenčnímu senátu Ústavního soudu žalobu – nástroj, který v tomto uspořádání nikdy nikdo nepoužil.</p>
-  <p>Soud vydal předběžné opatření: prezidentovu účast zajistil a uložil ministerstvu ji administrativně umožnit ještě před uzávěrkou akreditací. Spor tím fakticky rozhodl ve prospěch Hradu, meritorní verdikt ale teprve přijde. Miloš Zeman, sám bývalý prezident s maximalistickým výkladem pravomocí, se překvapivě postavil na stranu vlády, prohlásil, že Pavlovi „nelze tak úplně věřit“, a Ústavní soud označil za podjatý.</p>
+  <p>Vláda Andreje Babiše rozhodla, že delegaci na summit do Ankary povede premiér, a ministerstvo zahraničí Petra Macinky prezidenta do delegace nezařadilo. Petr Pavel argumentoval ustálenou praxí všech svých předchůdců i tím, že hlava státu je vrchním velitelem ozbrojených sil. Když jednání selhala, podal k Ústavnímu soudu návrh na rozhodnutí kompetenčního sporu – nástroj, který v tomto uspořádání nikdy nikdo nepoužil. Věc projednává plénum soudu pod spisovou značkou Pl. ÚS 16/26.</p>
+  <p>Soud vydal předběžné opatření: prezidentovu účast zajistil a uložil ministerstvu ji administrativně umožnit ještě před uzávěrkou akreditací. Šlo ale o prozatímní ochranu, nikoli o rozhodnutí sporu – o rozsahu pravomocí soud teprve rozhodne. V září 2026 plénum zamítlo námitku podjatosti vůči soudci Pavlu Šámalovi, který tak ve věci zůstává. Miloš Zeman, sám bývalý prezident s maximalistickým výkladem pravomocí, se překvapivě postavil na stranu vlády, prohlásil, že Pavlovi „nelze tak úplně věřit“, a Ústavní soud označil za podjatý – šlo o jeho politické hodnocení, nikoli o zjištění soudu.</p>
   <h5>Jak to číst</h5>
   <p>Ankarský spor je ukázkou toho, co v české ústavě chybí: jasné rozhraní mezi prezidentem a vládou v zahraniční politice. Dosud ho nahrazovala zvyklost, která fungovala, dokud spolu obě strany vycházely. Jakmile přestaly, ukázalo se, že místo pravidla existuje jen zvyk – a spor musel rozhodnout soud. Ať dopadne meritorní rozhodnutí jakkoli, precedens už vznikl a příští prezidenti i vlády se o něj budou opírat.</p>
 </article>
@@ -1979,7 +2083,7 @@
 </article>
       <article class="artsrc" id="art-s-202603">
   <span class="tag t-shared">Průsečík · 2026</span>
-  <h2>Komise, kterou vede žalobce a vyšetřuje soupeře</h2>
+  <h2>Komise, která vyšetřuje politické soupeře</h2>
   <p class="perex">V březnu 2026 zřídila sněmovní většina vyšetřovací komisi ke kauze Dozimetr. Jejím předsedou se stal Jindřich Rajchl, který vznik komise sám inicioval – a mezi možné svědky zařadil předsedu opozičního hnutí, jehož se kauza týká.</p>
   <p>Komise vznikla 25. března 2026 hlasy ANO, SPD a Motoristů; Piráti prosadili rozšíření záběru o středočeské silničáře a Všeobecnou zdravotní pojišťovnu. Má třináct členů, z toho osm z vládního tábora, a má prošetřit okolnosti a institucionální souvislosti podezření z korupce v pražském dopravním podniku. Předsedou byl 5. června zvolen Rajchl poměrem 90 hlasů proti 76 pro Pavla Žáčka z ODS. O necelý týden později oznámil, že komise prověří možné vazby hnutí STAN a TOP 09 a že mezi předvolanými by mohl být Vít Rakušan.</p>
   <p>Spor o legitimitu komise je ostrý a obě strany mají argumenty. Rajchl tvrdí, že komise nekopíruje soud, ale ptá se, proč orgány činné v trestním řízení zůstaly jen na určité úrovni – tedy proč se vyšetřování nedotklo politické roviny. Opozice namítá, že jde o pokus kriminalizovat politické soupeře v době, kdy o téže věci běží hlavní líčení a rozsudek nepadl. Znepokojení vzbudila i slova ministra spravedlnosti Jeronýma Tejce o úvahách stíhat politické strany jako právnické osoby a pozastavit jim činnost.</p>
@@ -1992,10 +2096,43 @@
 
 <footer>
   <div class="wrap">
-    <p>Sestaveno z veřejně dostupných zdrojů – zpravodajství ČTK, České televize, Českého rozhlasu, Deníku N a dalších médií, soudních a policejních rozhodnutí a veřejných archivů. Stav k srpnu 2026.</p>
-    <p>Každý článek odděluje popis událostí od závěrečné části „Jak to číst“, která je autorskou interpretací, nikoli faktem. Ověřitelná fakta, tvrzení aktérů a interpretace se snažíme rozlišovat i uvnitř textu.</p>
-    <p>Právní stav sporných kauz: v kauze Čapí hnízdo byla Jana Nagyová 4. května 2026 nepravomocně uznána vinnou a může se odvolat; řízení proti Andreji Babišovi je přerušeno poté, co ho v březnu 2026 Sněmovna nevydala, o jeho vině tedy soud nerozhodl a on ji odmítá. Evidenci Andreje Babiše ve svazcích StB označilo slovenské ministerstvo vnitra v soudem schváleném smíru z října 2024 za neoprávněnou a uznalo, že vědomě nespolupracoval; slovenský Ústav paměti národa s tímto závěrem nesouhlasí. U Filipa Turka policie v srpnu 2026 uzavřela, že osm příspěvků naplnilo znaky trestných činů a že jejich autorem byl on, stíhání však brání promlčení – soud proto o vině nikdy nerozhodoval, Turek závěry odmítá. Rozsudek ukládající hnutí SPD pokutu za předvolební plakáty není pravomocný a Tomio Okamura vinu odmítá; jeho vlastní stíhání je přerušeno po rozhodnutí Sněmovny o nevydání.</p>
-    <p>Osa zachycuje hlavní milníky, nikoli úplný výčet událostí, a slouží jako čtivý srovnávací přehled – ne jako referenční zdroj. U sporných tvrzení uvádíme stanoviska obou stran, aby si čtenář mohl udělat vlastní názor.</p>
+    <details class="about" id="about">
+      <summary>
+        <span class="ab-t">O této ose — zdroje, metoda a opravy</span>
+        <span class="ab-stamp" id="aboutStamp"></span>
+      </summary>
+
+      <div class="ab-grid">
+        <section class="ab-box">
+          <h4>Co to je</h4>
+          <p>Srovnávací časová osa životních drah v české politice. Zachycuje hlavní milníky, nikoli úplný výčet událostí, a slouží jako čtivý přehled — ne jako referenční zdroj. Ke každé události patří článek; celý obsah je bez JavaScriptu dostupný v <a href="#archiv">textové verzi</a>.</p>
+        </section>
+
+        <section class="ab-box">
+          <h4>Zdroje</h4>
+          <p>Přednost mají primární prameny: úřední životopisy na vlada.gov.cz a psp.cz, volební výsledky Českého statistického úřadu, rozhodnutí a tiskové zprávy soudů, dokumenty Armády ČR, NATO a Národní rozpočtové rady. Doplňuje je zpravodajství ČTK, České televize, Českého rozhlasu, Deníku N a Seznam Zpráv.</p>
+        </section>
+
+        <section class="ab-box ab-wide">
+          <h4>Metoda</h4>
+          <ul class="ab-rules">
+            <li><b>Fakta odděleně od výkladu.</b> Každý článek popisuje události a teprve závěrečná část „Jak to číst“ je autorskou interpretací.</li>
+            <li><b>Doložené, tvrzené a nedoložené se rozlišuje.</b> U sporných věcí uvádíme stanoviska všech stran — a výslovně i to, co doložené není. Absence záznamu není důkaz.</li>
+            <li><b>Nálepky se nepřebírají.</b> Charakteristiky jako „proruský“ patří s uvedením zdroje tomu, kdo je vyslovil, nikoli do popisu faktů.</li>
+            <li><b>Platí presumpce neviny.</b> U neuzavřených trestních věcí je aktuální právní stav i stanovisko dotčené osoby uveden vždy přímo u příslušné události.</li>
+          </ul>
+        </section>
+
+        <section class="ab-box ab-wide">
+          <h4>Opravy a revize</h4>
+          <ol class="ab-log">
+            <li><time datetime="2026-09-09">9. 9. 2026</time><span>Externí faktografický audit: 72 oprav v datech, funkcích a právním stavu kauz. Vypuštěny superlativy, které audit označil za nedoložené.</span></li>
+            <li><time datetime="2026-08-31">31. 8. 2026</time><span>Osa rozšířena na 17 osobností a 144 článků; metadata generována přímo z datové vrstvy.</span></li>
+            <li><time datetime="2026-08-25">25. 8. 2026</time><span>Redakční revize: odstraněny formulace závislé na tom, které osobnosti jsou právě vybrány.</span></li>
+          </ol>
+        </section>
+      </div>
+    </details>
   </div>
 </footer>
 
@@ -2053,7 +2190,7 @@
     macinka:{
       name:"Petr Macinka",surname:"Macinka",color:"#1E6E62",
       born:"* 18. 8. 1978, Hodonín",
-      arc:"mluvčí Hradu → muž Institutu V. Klause → šéf Motoristů → ministr zahraničí",
+      arc:"tiskový odbor Hradu → muž Institutu V. Klause → šéf Motoristů → ministr zahraničí",
       sum:"Kariéra organizátora: dvě dekády v zákulisí kolem Václava Klause proměnil ve vlastní stranu – a tři roky po jejím založení převzal českou diplomacii."
     },
     decroix:{
@@ -2094,9 +2231,9 @@
     },
     rehka:{
       name:"Karel Řehka",surname:"Řehka",color:"#4A535A",
-      born:"* 1975, Tišnov",
+      born:"* 1. 2. 1975, Brno",
       arc:"speciální síly → velitel 601. skupiny → šéf kyberúřadu → náčelník Generálního štábu",
-      sum:"Kariéra vojáka bez předlistopadové kapitoly: prošel elitním útvarem v Prostějově, velením na východním křídle NATO i civilním kyberúřadem. Od roku 2022 vede armádu; v létě 2026 mu končí mandát."
+      sum:"Kariéra vojáka bez předlistopadové kapitoly: prošel elitním útvarem v Prostějově, velením na východním křídle NATO i civilním kyberúřadem. Armádu vedl od roku 2022 do roku 2026, kdy ho vystřídal Miroslav Hlaváč."
     },
     rajchl:{
       name:"Jindřich Rajchl",surname:"Rajchl",color:"#6B4226",
@@ -2121,8 +2258,8 @@
   var FACTS={
     klaus:{rezim:"Nebyl členem KSČ; v roce 1970 musel odejít z akademie a šestnáct let strávil ve státní bance. StB na něj vedla dva svazky – jako na sledovanou osobu.",
            cesta:"Odborná autorita ekonoma proměněná ve vlastní politickou stranu a program transformace.",
-           domov:"ODS – zakladatel a předseda 1991–2002; od roku 2003 bez stranické příslušnosti.",
-           vrchol:"Prezident republiky (2003–2013), předtím premiér (1992–1997) a předseda Sněmovny (1998–2002).",
+           domov:"ODS – zakladatel a předseda 1991–2002, poté čestný předseda do prosince 2008.",
+           vrchol:"Prezident republiky (2003–2013), předtím premiér (1992–1998; vláda podala demisi v listopadu 1997) a předseda Sněmovny (1998–2002).",
            kauzy:"Kuponová privatizace a slabá regulace 90. let, pád vlády kvůli financování ODS, amnestie z roku 2013 a první ústavní žaloba pro velezradu v dějinách země."},
     zeman:{rezim:"Členem KSČ 1968–70, po okupaci vyloučen; poté prognostik bez kariérních vyhlídek.",
            cesta:"Rétorika a stranická práce – objížděl republiku a mluvil jazykem hospod i náměstí.",
@@ -2142,8 +2279,8 @@
     schillerova:{rezim:"Narozena 1964, práva dokončila v roce 1986. Její veřejné životopisy začínají až rokem 1991; o období 1986–1991 ani o případném členství v KSČ nejsou veřejně dostupné údaje.",
            cesta:"Pětadvacet let ve finanční správě a odborná pověst daňové právničky, kterou proměnila v politickou kariéru.",
            domov:"ANO – místopředsedkyně hnutí.",
-           vrchol:"Místopředsedkyně vlády a ministryně financí (2017–2021 a od 2025).",
-           kauzy:"Rekordní schodky za pandemie a zrušení superhrubé mzdy bez náhrady výpadku; rozpočet 2026, který Národní rozpočtová rada označila za pravděpodobně rozporný se zákonem."},
+           vrchol:"Ministryně financí (2017–2021 a od 2025); místopředsedkyní vlády byla v letech 2019–2021 a znovu od roku 2025.",
+           kauzy:"Rekordní schodky za pandemie a zrušení superhrubé mzdy bez náhrady výpadku; rozpočet 2026, který Národní rozpočtová rada označila za rozporný se zákonem o rozpočtové odpovědnosti."},
     fiala:{rezim:"Bez stranické legitimace; brněnské katolické a samizdatové prostředí, po studiích muzejník.",
            cesta:"Akademická autorita a trpělivá obnova poškozené strany.",
            domov:"ODS – předsedou 2014–2026.",
@@ -2153,12 +2290,12 @@
            cesta:"Od obecní politiky nahoru: devět let starostou Kolína, poté předsedou hnutí vyrostlého z komunální úrovně.",
            domov:"STAN – předsedou od roku 2019, opakovaně potvrzen přes devadesát procent hlasů.",
            vrchol:"První místopředseda vlády a ministr vnitra (2021–2025).",
-           kauzy:"Kauza Dozimetr, v níž byl obviněn místopředseda jeho hnutí – sám stíhán nebyl; jmenování Petra Mlejnka do čela rozvědky a komunikace migračního paktu."},
+           kauzy:"Kauza Dozimetr, v níž byl obviněn předseda pražské organizace hnutí – sám stíhán nebyl; jmenování Petra Mlejnka do čela rozvědky a komunikace migračního paktu."},
     okamura:{rezim:"Narozen 1972; dětství mezi Japonskem a Československem, režim zažil jako dítě.",
            cesta:"Podnikání a mediální viditelnost proměněné ve vlastní politický projekt.",
            domov:"SPD – hnutí, které založil v roce 2015 (předtím Úsvit).",
            vrchol:"Předseda Poslanecké sněmovny (od 2025).",
-           kauzy:"Nepravomocný trest pro SPD za předvolební plakáty; Sněmovna ho odmítla vydat ke stíhání."},
+           kauzy:"SPD byla za předvolební plakáty v září 2026 pravomocně zproštěna obžaloby; jeho vlastní stíhání je přerušené, protože ho Sněmovna nevydala."},
     rajchl:{rezim:"Narozen 1976; režim zažil jako dítě.",
            cesta:"Z advokacie a fotbalových funkcí přes pouliční protesty do Sněmovny – kariéra postavená na mobilizaci nespokojených.",
            domov:"PRO – strana, kterou v roce 2022 založil a vede; poslancem zvolen na kandidátce SPD.",
@@ -2176,7 +2313,7 @@
            kauzy:"Spor o Turkovu nominaci, kompetenční žaloba prezidenta kvůli summitu NATO."},
     decroix:{rezim:"Narozena 1982; režim zažila jako dítě.",
            cesta:"Právní expertiza a komunální politika – z advokacie přes zastupitelstva do Sněmovny.",
-           domov:"ODS – místopředsedkyní od roku 2024.",
+           domov:"ODS – místopředsedkyní v letech 2024–2026.",
            vrchol:"Ministryně spravedlnosti (2025).",
            kauzy:"Zdědila bitcoinovou kauzu; po změně vlády čelí trestnímu oznámení nástupce."},
     klempir:{rezim:"V letech 1984–85 veden StB jako agent „Olda“ – spolupráci přiznal a omluvil se.",
@@ -2245,34 +2382,34 @@
     {id:"b-2021",w:"babis",y:2021,yl:"2021",t:"Pád z vrcholu",s:"Audit Evropské komise potvrzuje jeho střet zájmů kvůli Agrofertu, na podzim se objevuje v Pandora Papers. ANO těsně prohrává volby s koalicí SPOLU a Babiš v prosinci končí jako premiér."},
     {id:"t-2022",w:"turek",y:2022.3,yl:"2022",t:"U zrodu Motoristů",s:"Stává se tváří nové strany Motoristé sobě, vedené Petrem Macinkou z okruhu Institutu Václava Klause; od prosince 2024 je jejím čestným prezidentem."},
     {id:"s-2023",w:["pavel","babis"],y:2023.1,yl:"Leden 2023",t:"Duel o Hrad",s:"Ve druhém kole prezidentské volby poráží Pavel Babiše poměrem 58,3 % : 41,7 % a s rekordními 3,36 milionu hlasů se stává čtvrtým prezidentem ČR. Inaugurován je 9. března 2023."},
-    {id:"b-2023",w:"babis",y:2023.5,yl:"2023–25",t:"Soudní ping-pong",s:"V kauze Čapí hnízdo je zproštěn obžaloby (2023 a znovu 2024), Vrchní soud však oba rozsudky ruší a v roce 2025 zavazuje městský soud právním názorem o vině. V březnu 2026 Sněmovna Babiše nevydá a jeho řízení se přerušuje; spoluobžalovaná Nagyová je v květnu nepravomocně odsouzena."},
+    {id:"b-2023",w:"babis",y:2023.5,yl:"2023–25",t:"Soudní ping-pong",s:"V kauze Čapí hnízdo je zproštěn obžaloby (2023 a znovu 2024), Vrchní soud však oba rozsudky ruší a v roce 2025 zavazuje městský soud právním názorem o vině. V březnu 2026 Sněmovna nedá souhlas s jeho stíháním a řízení se přerušuje; spoluobžalovaná Nagyová je v srpnu 2026 pravomocně odsouzena."},
     {id:"p-2024",w:"pavel",y:2024.2,yl:"2024",t:"Muniční iniciativa",s:"Na Mnichovské bezpečnostní konferenci představuje českou iniciativu nákupu dělostřelecké munice pro Ukrajinu – jeho nejviditelnější zahraničněpolitický počin v úřadu."},
     {id:"t-2024",w:"turek",y:2024.4,yl:"2024",t:"Europoslancem s rekordem",s:"Jako lídr koalice Přísahy a Motoristů získává přes 152 tisíc preferenčních hlasů a míří do frakce Patrioti pro Evropu. Kampaň provázejí spory o jeho vztah k nacistickým relikviím."},
     {id:"b-2024",w:"babis",y:2024.6,yl:"2024",t:"Patrioti pro Evropu",s:"S Viktorem Orbánem a Herbertem Kicklem spoluzakládá novou evropskou frakci Patrioti pro Evropu – ANO opouští liberální frakci Renew."},
     {id:"b-2025",w:"babis",y:2025.3,yl:"2025",t:"Comeback",s:"ANO vyhrává sněmovní volby s 34,5 % a domlouvá vládu se SPD a Motoristy. Kvůli střetu zájmů Babiš v prosinci oznamuje nevratné vložení Agrofertu do svěřenského fondu RSVP Trust."},
     {id:"t-2025",w:"turek",y:2025.6,yl:"2025",t:"Kauza, která zastavila ministra",s:"Po zvolení poslancem míří na ministerstvo zahraničí; Deník N však zveřejní archiv jeho nenávistných příspěvků a prezident Pavel ho odmítne jmenovat do vlády. Policie v roce 2026 osm příspěvků označí za trestné, stíhání však brání promlčení."},
     {id:"s-2018",w:["zeman","babis"],y:2018.15,yl:"2017–18",t:"Prezident a stíhaný premiér",s:"Miloš Zeman jmenoval Andreje Babiše premiérem i po jeho obvinění a prohlásil, že trestní stíhání není ústavní překážkou – precedens, který o osm let později využije i jeho nástupce."},
-    {id:"s-2021",w:["zeman","fiala","babis"],y:2021.9,yl:"Prosinec 2021",t:"Plexisklo v Lánech",s:"Po nejtěsnějších volbách moderní éry skončil prezident na jednotce intenzivní péče. Petra Fialu jmenoval premiérem 28. listopadu 2021 přes bezpečnostní box – snímek obletěl svět."},
+    {id:"s-2021",w:["zeman","fiala","babis"],y:2021.9,yl:"Listopad 2021",t:"Plexisklo v Lánech",s:"Po nejtěsnějších volbách moderní éry skončil prezident na jednotce intenzivní péče. Petra Fialu jmenoval premiérem 28. listopadu 2021 přes bezpečnostní box – snímek obletěl svět."},
     {id:"s-202510",w:["babis","fiala","okamura","macinka","turek","klempir","decroix","rajchl","rakusan"],y:2025.75,yl:"Říjen 2025",t:"Volby, které otočily zemi",s:"ANO vyhrálo s 34,5 %, SPOLU získalo 23,4 % a Fiala uznal porážku ještě volební noc. Do Sněmovny se poprvé dostali Motoristé; předsedou Sněmovny se stal Tomio Okamura."},
     {id:"s-202512",w:["pavel","babis","okamura","turek","macinka","klempir","bartha","schillerova"],y:2025.8,yl:"Prosinec 2025",t:"Role se protínají",s:"Prezident Pavel 9. prosince jmenuje Babiše potřetí premiérem a 15. prosince jeho vládu ANO, SPD a Motoristů. Sněmovna jí vyslovuje důvěru 15. ledna 2026 – poprvé spolu vládnou dva soupeři z prezidentského finále."},
     {id:"j-1976",w:"rajchl",y:1976.7,yl:"1976",t:"Narození v Hradci Králové",s:"Vystuduje práva na Univerzitě Karlově a otevře si vlastní advokátní kancelář. Od mládí ho vedle práva provází fotbal – nejprve jako hráče, později jako funkcionáře."},
     {id:"j-2001",w:"rajchl",y:2001.5,yl:"2001–05",t:"Advokátem fotbalového bosse",s:"Začíná zastupovat zatčeného šéfa fotbalového svazu Františka Chvalovského a přes něj vstupuje do vedení prvoligových Blšan. Ve fotbale získá přezdívku ďáblův advokát."},
     {id:"j-2011",w:"rajchl",y:2011.6,yl:"2006–15",t:"Místopředsedou fotbalové asociace",s:"Dostane se do vedení FAČR, Dukly Praha i marketingové komise UEFA. V roce 2011 neúspěšně kandiduje na předsedu svazu s podporou Romana Berbra."},
     {id:"j-2020",w:"rajchl",y:2020.6,yl:"2020–22",t:"Covid a vstup do politiky",s:"Stává se hlasitým kritikem protipandemických opatření; část jeho právních námitek soudy potvrdily, jiná tvrzení odborníci odmítli. Krátce působí v Trikolóře."},
-    {id:"j-2022",w:"rajchl",y:2022.7,yl:"2022–23",t:"Česko proti bídě",s:"Zakládá stranu PRO a v září 2022 vystupuje jako hlavní řečník na demonstraci, která zaplní Václavské náměstí desítkami tisíc lidí. Na jaře 2023 žádá demisi vlády."},
+    {id:"j-2022",w:"rajchl",y:2022.7,yl:"2022–23",t:"Česko proti bídě",s:"Zakládá stranu PRO a stává se tváří protivládní ulice; 11. března 2023 vystupuje jako hlavní řečník demonstrace Česko proti bídě na Václavském náměstí."},
     {id:"j-2024",w:"rajchl",y:2024.45,yl:"2024",t:"Neúspěch v evropských volbách",s:"Jako lídr kandidátky PRO získává 2,15 % a žádný mandát. Vyvodí z toho závěr, že samostatně na Sněmovnu nedosáhne."},
     {id:"j-2025",w:"rajchl",y:2025.72,yl:"2025",t:"Poslancem na cizí kandidátce",s:"Zvolen za SPD v Moravskoslezském kraji s více než 14 tisíci přednostními hlasy – víc než Tomio Okamura. Dohoda ale stranu rozdělí a odejde z ní řada členů."},
     {id:"j-2026",w:"rajchl",y:2026.45,yl:"2026",t:"Z ulice do výborů",s:"Místopředseda výboru pro obranu, člen zahraničního výboru a komise pro kontrolu Vojenského zpravodajství; od června 2026 vede vyšetřovací komisi ke kauze Dozimetr."},
-    {id:"r-1975",w:"rehka",y:1975.5,yl:"1975",t:"Narození v Tišnově",s:"Prochází vojenským gymnáziem v Opavě a průzkumným směrem ve Vyškově – týmiž školami jako o generaci dříve Petr Pavel, ale už v armádě demokratického státu."},
+    {id:"r-1975",w:"rehka",y:1975.5,yl:"1975",t:"Narození v Brně",s:"Prochází vojenským gymnáziem v Opavě a průzkumným směrem ve Vyškově – týmiž školami jako o generaci dříve Petr Pavel, ale už v armádě demokratického státu."},
     {id:"r-2002",w:"rehka",y:2002.5,yl:"2002–09",t:"U speciálních sil",s:"Nastupuje k 601. skupině speciálních sil v Prostějově; slouží na Balkáně a v Afghánistánu a tři roky u aliančního velitelství rychlé reakce v Německu."},
     {id:"r-2010",w:"rehka",y:2010.5,yl:"2010–17",t:"Velitel 601. skupiny",s:"Čtyři roky velí elitnímu útvaru, poté řídí z ministerstva celý sektor speciálních sil. V roce 2016 je jmenován brigádním generálem; vydává knihu o informační válce."},
     {id:"r-2017",w:"rehka",y:2017.5,yl:"2017–20",t:"Východní křídlo NATO",s:"Zástupce velitele Mnohonárodní divize Severovýchod v polském Elblągu – štábu, který po anexi Krymu koordinuje obranu Pobaltí a Polska."},
     {id:"r-2020",w:"rehka",y:2020.25,yl:"2020–22",t:"Ředitelem kyberúřadu",s:"Kvůli vedení Národního úřadu pro kybernetickou a informační bezpečnost přerušuje vojenskou kariéru – neobvyklý krok, který mu paradoxně otevře cestu na vrchol."},
     {id:"r-2022",w:"rehka",y:2022.5,yl:"2022",t:"Náčelníkem Generálního štábu",s:"Do funkce nastupuje čtyři měsíce po ruském vpádu na Ukrajinu. Na prvním velitelském shromáždění říká, že armáda se musí připravovat na válku velkého rozsahu."},
     {id:"r-2023",w:"rehka",y:2023.6,yl:"2023–25",t:"Spory o kompetence",s:"Roky napětí s ministryní obrany Černochovou o hranici mezi velením armádě a řízením resortu; v roce 2023 nabízí rezignaci, premiér Fiala ji nepřijme."},
-    {id:"r-2026",w:"rehka",y:2026.4,yl:"2026",t:"Konec mandátu",s:"V létě mu končí závazek. Nástupcem má být jeho první zástupce Miroslav Hlaváč; armádu předává s dvojnásobným rozpočtem oproti svému nástupu."},
+    {id:"r-2026",w:"rehka",y:2026.4,yl:"2026",t:"Konec mandátu",s:"K 1. červenci 2026 ho v čele Generálního štábu vystřídal jeho první zástupce Miroslav Hlaváč. Armádu předával s výrazně vyšším rozpočtem, než jaký zdědil."},
     {id:"s-202605",w:["pavel","babis","rehka"],y:2026.38,yl:"Květen 2026",t:"Kdo povede armádu",s:"Vláda vybrala Řehkova nástupce Miroslava Hlaváče, prezident Pavel volbu ocenil – proti hlasoval jediný ministr, a to šéf resortu obrany Jaromír Zůna."},
-    {id:"s-202606",w:["pavel","babis","macinka","zeman"],y:2026.5,yl:"Léto 2026",t:"Spor o Ankaru",s:"Kdo vede delegaci na summit NATO? Prezident podal historicky první kompetenční žalobu proti vládě; Ústavní soud mu předběžným opatřením účast zajistil."},
+    {id:"s-202606",w:["pavel","babis","macinka","zeman"],y:2026.5,yl:"Léto 2026",t:"Spor o Ankaru",s:"Kdo vede delegaci na summit NATO? Prezident podal k Ústavnímu soudu návrh na rozhodnutí kompetenčního sporu (Pl. ÚS 16/26); předběžné opatření mu účast zajistilo, spor o rozsah pravomocí ale rozhodnut nebyl."},
     {id:"a-1964",w:"schillerova",y:1964.3,yl:"1964",t:"Narození v Brně",s:"Vystuduje brněnská práva a specializuje se na správní a daňové právo – obor, který jí určí celou další dráhu."},
     {id:"a-1991",w:"schillerova",y:1991.7,yl:"1991–2015",t:"Pětadvacet let ve finanční správě",s:"Od právničky Finančního úřadu Brno-venkov k jeho ředitelce a dál na Generální finanční ředitelství. Souběžně spoluautorka daňových komentářů a lektorka."},
     {id:"a-2016",w:"schillerova",y:2016.05,yl:"2016–17",t:"Náměstkyní a tváří EET",s:"Jako náměstkyně ministra financí Babiše řídí zavádění elektronické evidence tržeb. Na uvolněné ministerstvo ji v roce 2017 navrhne, premiér Sobotka to ale odmítne."},
@@ -2280,7 +2417,7 @@
     {id:"a-2020",w:"schillerova",y:2020.55,yl:"2020–21",t:"Rekordní schodky a konec superhrubé mzdy",s:"Sněmovna povolí schodek půl bilionu korun. Souběžně padá superhrubá mzda s výpadkem 74 až 90 miliard ročně, který ministerstvo nemá čím nahradit."},
     {id:"a-2021",w:"schillerova",y:2021.78,yl:"2021–25",t:"V čele poslaneckého klubu ANO",s:"Po prohraných volbách vede klub ANO a stává se jednou z hlavních tváří opozice; útočí na Fialovu vládu kvůli drahotě a konsolidačnímu balíčku."},
     {id:"a-2025",w:"schillerova",y:2025.82,yl:"2025",t:"Návrat na ministerstvo",s:"15. prosince se vrací jako místopředsedkyně vlády a ministryně financí. Rozpočet po předchůdci odmítá jako nereálný a ohlašuje „návrat k realitě“."},
-    {id:"a-2026",w:"schillerova",y:2026.1,yl:"2026",t:"Rozpočet proti zákonu",s:"Vláda předkládá schodek 310 miliard; Národní rozpočtová rada ho označí za pravděpodobně rozporný se zákonem. Zrušení rady, které nadhodil premiér, ministryně odmítá."},
+    {id:"a-2026",w:"schillerova",y:2026.1,yl:"2026",t:"Rozpočet proti zákonu",s:"Vláda předkládá schodek 310 miliard; Národní rozpočtová rada ho označí za rozporný se zákonem o rozpočtové odpovědnosti. Zrušení rady, které nadhodil premiér, ministryně odmítá."},
     {id:"f-1964",w:"fiala",y:1964,yl:"1964",t:"Narození v Brně",s:"Vyrůstá v Brně v katolicky založené rodině. Před rokem 1989 se pohybuje v okruhu katolického disentu a samizdatu – do KSČ na rozdíl od Pavla a Babiše nikdy nevstoupí."},
     {id:"f-1990",w:"fiala",y:1990.5,yl:"1990–2011",t:"Zakladatel české politologie",s:"Po revoluci spoluzakládá první katedru politologie, v roce 2002 se stává prvním profesorem oboru v zemi a v letech 2004–2011 vede jako rektor Masarykovu univerzitu."},
     {id:"f-2012",w:"fiala",y:2012.5,yl:"2012–13",t:"Z akademie do vlády",s:"Jako nestraník přijímá post ministra školství v Nečasově vládě; o rok později je zvolen poslancem na kandidátce ODS."},
@@ -2292,7 +2429,7 @@
     {id:"i-2010",w:"rakusan",y:2010.85,yl:"2010–19",t:"Starostou Kolína",s:"Jako nestraník za Změnu pro Kolín vede město devět let a mandát dvakrát obhájí; v roce 2018 získá jeho uskupení přes 62 procent hlasů."},
     {id:"i-2015",w:"rakusan",y:2015.5,yl:"2015–19",t:"Cesta do čela STAN",s:"Vstupuje do hnutí Starostů, v roce 2016 je prvním místopředsedou, o rok později poslancem a v dubnu 2019 předsedou s 93,9 procenta hlasů."},
     {id:"i-2021",w:"rakusan",y:2021.85,yl:"2021",t:"Ministrem vnitra a vicepremiérem",s:"Koalice s Piráty získá 37 mandátů, z nichž díky kroužkování připadne Starostům 33. V prosinci se Rakušan stává prvním místopředsedou vlády a ministrem vnitra."},
-    {id:"i-2022",w:"rakusan",y:2022.46,yl:"Červen 2022",t:"Kauza Dozimetr",s:"Policejní razie odhalí korupční síť v pražském dopravním podniku, jejíž součástí je místopředseda STAN Petr Hlubuček. Rakušan obviněn není, vyvozuje ale personální důsledky."},
+    {id:"i-2022",w:"rakusan",y:2022.46,yl:"Červen 2022",t:"Kauza Dozimetr",s:"Policejní razie odhalí korupční síť v pražském dopravním podniku, jejíž součástí je předseda pražské organizace STAN Petr Hlubuček. Rakušan obviněn není, vyvozuje ale personální důsledky."},
     {id:"i-2022b",w:"rakusan",y:2022.8,yl:"2022–23",t:"Ministr uprchlické vlny",s:"Řídí přijetí uprchlíků z Ukrajiny a prosazuje zákony lex Ukrajina. Česko má v přepočtu na obyvatele nejvyšší podíl uprchlíků s dočasnou ochranou v EU."},
     {id:"i-2023",w:"rakusan",y:2023.98,yl:"2023–25",t:"Zbraně, doklady a migrační pakt",s:"Po střelbě na Filozofické fakultě prosazuje zpřísnění zbraňového zákona, spouští aplikaci eDoklady a marně vysvětluje evropský migrační pakt."},
     {id:"i-2025",w:"rakusan",y:2025.76,yl:"2025",t:"Ztráta třetiny mandátů",s:"STAN získá 11,23 procenta a 22 křesel místo dosavadních 33. Rakušan mluví o neúspěchu, zůstává předsedou a odchází do opozice."},
@@ -2303,7 +2440,7 @@
     {id:"o-2011",w:"okamura",y:2011.5,yl:"2010–12",t:"Celebrita a senátor",s:"Popularitu z televizního pořadu Den D přetavuje v politiku: v roce 2012 je zvolen senátorem za Zlínsko, prezidentská kandidatura ztroskotá na neplatných podpisech."},
     {id:"o-2013",w:"okamura",y:2013.6,yl:"2013–15",t:"Úsvit a první rozkol",s:"Jeho hnutí Úsvit přímé demokracie získává 6,9 % a 14 mandátů. Po sporech o peníze a vedení se s vlastními poslanci rozchází – a zakládá SPD."},
     {id:"o-2015",w:"okamura",y:2015.7,yl:"2015–17",t:"SPD a protiimigrační vlna",s:"Na vrcholu migrační krize staví SPD na odporu k islámu, migraci a EU. Volby 2017 přinášejí průlom: 10,6 %, 22 mandátů a post místopředsedy Sněmovny."},
-    {id:"o-2022",w:"okamura",y:2022.4,yl:"2022–26",t:"Obžalovaný lídr",s:"Kvůli plakátům s krvavým „chirurgem z dovozu“ je stíhán za podněcování k nenávisti. Hájí se svobodou slova; kauza se táhne přes volby až do jeho nové funkce."},
+    {id:"o-2022",w:"okamura",y:2022.4,yl:"2022–26",t:"Obžalovaný lídr",s:"Kvůli plakátům s krvavým „chirurgem z dovozu“ je stíhán za podněcování k nenávisti. SPD byla v září 2026 pravomocně zproštěna; jeho vlastní řízení je přerušené, protože ho Sněmovna nevydala."},
     {id:"o-2025",w:"okamura",y:2025.5,yl:"2025",t:"Třetí nejvyšší muž státu",s:"SPD (7,8 %) vstupuje do Babišovy koalice a Okamura je zvolen předsedou Sněmovny. Den po zvolení nechává z budovy sundat ukrajinskou vlajku – gesto, které rozdělí zemi."},
     {id:"m-1978",w:"macinka",y:1978.5,yl:"1978",t:"Narození v Hodoníně",s:"Dětství prožívá ve vinařských Velkých Bílovicích na jižní Moravě. Politologii vystuduje na konzervativním CEVRO Institutu – líhni pravicových kádrů."},
     {id:"m-2008",w:"macinka",y:2008.5,yl:"2008–25",t:"Muž Václava Klause",s:"Pět let vede tiskovou službu Hradu za prezidenta Klause a dalších dvanáct let působí jako manažer jeho institutu. Klausovský pohled na svět se stane jeho programem."},
@@ -2317,7 +2454,7 @@
     {id:"d-2025",w:"decroix",y:2025.35,yl:"2025–26",t:"Ministryně uprostřed skandálu",s:"Po Blažkově pádu přebírá v červnu 2025 resort spravedlnosti zasažený bitcoinovou kauzou. Sází na transparentnost a audit; po změně vlády se z hasičky stává terčem nástupce."},
     {id:"k-1963",w:"klempir",y:1963.5,yl:"1963",t:"Narození v Kyjově",s:"Vyrůstá na jižní Moravě; po gymnáziu odchází do Prahy, pracuje jako dělník v papírnách a zpívá s rockovou Garáží na okraji oficiální kultury."},
     {id:"k-1984",w:"klempir",y:1984.5,yl:"1984–85",t:"Krycí jméno Olda",s:"V roce 1984 ho získává StB, aby donášel z prostředí „závadové mládeže“. Spolupráci po letech sám přiznal; detaily z archivů zveřejnili novináři až v roce 2026, kdy byl ministrem."},
-    {id:"k-1989",w:"klempir",y:1989.5,yl:"17. 11. 1989",t:"J.A.R.: kapela ze dne revoluce",s:"V den, kdy začíná revoluce, spoluzakládá funkovou skupinu J.A.R. Jako frontman a textař ji povede 36 let; píše i pro Dana Bártu, Olympic nebo filmy Snowboarďáci a Rafťáci."},
+    {id:"k-1989",w:"klempir",y:1989.5,yl:"17. 11. 1989",t:"J.A.R.: kapela ze dne revoluce",s:"V den, kdy začíná revoluce, spoluzakládá funkovou skupinu J.A.R. Jako zakládající člen, textař a rapper v ní působí 36 let; píše i pro Dana Bártu, Olympic nebo filmy Snowboarďáci a Rafťáci."},
     {id:"k-2000",w:"klempir",y:2001.8,yl:"±2000",t:"Kreativec v reklamě",s:"Přes čtvrt století ve vedení nadnárodních agentur (Ogilvy, Young &amp; Rubicam), autor jména Oskarta; od roku 2014 vede vlastní agenturu Safran. Umění a marketing se v jeho dráze prolínají."},
     {id:"k-2025",w:"klempir",y:2025.55,yl:"2025",t:"Z pódia na kandidátku",s:"Jako nestraník vede kandidátku Motoristů v Plzeňském kraji a je zvolen poslancem. Kapela J.A.R. se s ním po 36 letech rozchází; on mluví o nečekaném vyhazovu."},
     {id:"k-2026",w:"klempir",y:2025.9,yl:"2025–26",t:"Ministr proti kulturní obci",s:"Od prosince 2025 ministr kultury. Éru provázejí odhalení o svazku Olda, neúspěšný mediální zákon, vypískání ve Strážnici i spor o novou kulturní politiku."},
@@ -2336,9 +2473,9 @@
     {id:"n-2021",w:"vachatova",y:2021.3,yl:"2020–25",t:"Aktivistkou za svobodu projevu",s:"Na vlastním webu píše proti organizacím mapujícím dezinformace i proti evropské úpravě nenávistných projevů. Pohybuje se v okruhu Trikolóry a Spolku na obranu svobody projevu."},
     {id:"n-2026",w:"vachatova",y:2026.02,yl:"Leden 2026",t:"Poradkyní premiéra",s:"Stává se poradkyní Andreje Babiše pro svobodu projevu se smlouvou na 80 hodin měsíčně. Následuje petice za odvolání, ale i vlna výhrůžek, kvůli nimž se obrací na právníka."},
     {id:"n-2026b",w:"vachatova",y:2026.35,yl:"2026",t:"Utajená náplň práce",s:"Vláda odmítá i podle informačního zákona sdělit, co má na starosti. Z úniků vyplyne, že upravovala teze zákona proti neziskovkám a připomínkovala priority pro evropské peníze."},
-    {id:"u-1976",w:"bartha",y:1976.5,yl:"1976",t:"Narození v Kráľovském Chlmci",s:"Rodačka z maďarskojazyčného města na východním Slovensku. Jediná postava osy, která nikdy nekandidovala v žádných volbách – její moc poroste jinudy."},
+    {id:"u-1976",w:"bartha",y:1976.5,yl:"1976",t:"Narození v Kráľovském Chlmci",s:"Rodačka z maďarskojazyčného města na východním Slovensku. Nikdy nekandidovala v žádných volbách – její moc poroste jinudy, přes jmenované funkce."},
     {id:"u-1999",w:"bartha",y:1999.4,yl:"1994–2013",t:"Jazyky, cestovky, Bakala",s:"Vystuduje maďarsko-český překlad na FF UK, řídí pražské cestovní kanceláře a začátkem desátých let se stává asistentkou finančníka Zdeňka Bakaly – muže, jehož Babiš označuje za nepřítele."},
-    {id:"u-2014",w:"bartha",y:2014.7,yl:"2014–21",t:"Pravá ruka",s:"Řídí Babišův kabinet na ministerstvu financí a od roku 2018 celý Úřad vlády. Organizuje cestu k Trumpovi i rozloučení s Karlem Gottem; veřejnost ji přesto téměř nezná."},
+    {id:"u-2014",w:"bartha",y:2015.4,yl:"2015–21",t:"Pravá ruka",s:"Od roku 2015 řídí Babišův kabinet na ministerstvu financí a od roku 2018 celý Úřad vlády. Organizuje cestu k Trumpovi i rozloučení s Karlem Gottem; veřejnost ji přesto téměř nezná."},
     {id:"u-2022",w:"bartha",y:2022.6,yl:"2022–23",t:"Šéfka kampaně o Hrad",s:"Vede Babišovu prezidentskou kampaň; v případě výhry se s ní počítá do čela Kanceláře prezidenta. Po porážce z týmu odchází do Agrofertu."},
     {id:"u-2025",w:"bartha",y:2025.87,yl:"2025–26",t:"Návrat do Strakovky",s:"S třetí Babišovou vládou se v prosinci 2025 vrací do čela Úřadu vlády – s prověrkou na přísně tajné a pověstí nejvlivnější nevolené osoby české exekutivy."},
     {id:"v-1941",w:"klaus",y:1941.5,yl:"1941",t:"Narození v Praze",s:"Vystuduje Vysokou školu ekonomickou a nastoupí do Ekonomického ústavu Akademie věd. Absolvuje stáže v Itálii a USA a v roce 1968 získá hodnost kandidáta věd."},
@@ -2350,7 +2487,7 @@
     {id:"v-1998",w:"klaus",y:1998.6,yl:"1998–2002",t:"Předsedou Sněmovny",s:"Po prohraných volbách uzavře s Milošem Zemanem opoziční smlouvu, která ČSSD umožní vládnout a jemu vynese předsednictví Poslanecké sněmovny."},
     {id:"v-2003",w:"klaus",y:2003.15,yl:"2003–13",t:"Prezidentem republiky",s:"Zvolen na třetí pokus s podporou komunistů, v roce 2008 mandát obhájí. Stává se nejznámějším evropským kritikem EU, odkládá podpis Lisabonské smlouvy a odmítá klimatickou politiku."},
     {id:"v-2013",w:"klaus",y:2013.02,yl:"2013",t:"Amnestie a žaloba pro velezradu",s:"Novoroční amnestie zastaví i velké hospodářské kauzy. Senát na něj podá vůbec první ústavní žalobu pro velezradu; Ústavní soud ji zastaví, protože mandát mezitím vypršel."},
-    {id:"v-2014",w:"klaus",y:2014.5,yl:"2013–26",t:"Institut a nová pravice",s:"Zakládá vlastní institut, z jehož okruhu vzejdou Motoristé i Trikolóra. Před volbami 2025 podpoří Babiše proti Fialovi a v roce 2026 kritizuje i vládu, kterou pomohl umožnit."},
+    {id:"v-2014",w:"klaus",y:2014.5,yl:"2013–26",t:"Institut a nová pravice",s:"Jeho institut, založený už v roce 2012, se stává zázemím, z jehož okruhu vzejdou Motoristé i Trikolóra. Před volbami 2025 podpoří Babiše proti Fialovi a v roce 2026 kritizuje i vládu, kterou pomohl umožnit."},
     {id:"s-1998",w:["klaus","zeman"],y:1998.55,yl:"1998–2002",t:"Opoziční smlouva",s:"Dva rivalové uzavřou dohodu: Zemanova ČSSD vládne, Klausova ODS získá předsednictví obou komor. Vzniká nejkontroverznější uspořádání moci polistopadové éry."},
     {id:"z-1944",w:"zeman",y:1944,yl:"1944",t:"Narození v Kolíně",s:"Vyrůstá po rozvodu rodičů s matkou učitelkou. Samotář, který si autoritu vydobývá znalostmi – a osvojuje si ironii a ostré slovo jako hlavní zbraň."},
     {id:"z-1968",w:"zeman",y:1968.5,yl:"1968–70",t:"Vstup do KSČ a vyloučení",s:"Vstupuje do strany v době pražského jara, po roce 1970 je vyloučen za odmítnutí okupace. Následuje dvacet let profesní stopky a práce v prognostice."},
@@ -2387,6 +2524,7 @@
     return yr<ERAS[0].from?0:ERAS.length-1;
   }
   function visible(ev){
+    if(flt)return !!flt.ids[ev.id];
     if(Array.isArray(ev.w)){
       var n=0;ev.w.forEach(function(k){if(sel.indexOf(k)>-1)n++;});
       return sel.length===1?n>=1:n>=2;
@@ -2506,7 +2644,7 @@
         }
       }
     });
-    root.className='timeline '+(solo?'mode-solo':'mode-rail')+(n>3?' dense':'')+(zoom==='out'?' zoom-out':'');
+    root.className='timeline '+(flt?'filtered ':'')+(solo?'mode-solo':'mode-rail')+(n>3?' dense':'')+(zoom==='out'?' zoom-out':'');
 
     root.innerHTML=html;
     observeReveals();
@@ -2518,6 +2656,127 @@
     if(l)document.documentElement.style.setProperty('--legendh',l.offsetHeight+'px');
   }
   window.addEventListener('resize',syncLegend);
+
+  /* ================= VYHLEDÁVÁNÍ JAKO FILTR OSY ================= */
+  var qEl=document.getElementById('q');
+  var chip=document.getElementById('fltchip');
+  var note=document.getElementById('fltnote');
+  var IDX=null, flt=null, baseCache={};
+
+  /* normalizace zachovávající délku (diakritika pryč, indexy sedí) */
+  function baseChar(c){
+    if(baseCache[c]!==undefined)return baseCache[c];
+    var d=c.toLowerCase();
+    if(d.normalize){var n=d.normalize('NFD');if(n)d=n.charAt(0);}
+    baseCache[c]=d;return d;
+  }
+  function norm(x){var o='',i;for(i=0;i<x.length;i++)o+=baseChar(x.charAt(i));return o;}
+  function toks(x){return norm(x).split(/[^a-z0-9]+/).filter(function(t){return t.length>1;});}
+  function uniq(a){
+    var seen={},out=[],i;
+    for(i=0;i<a.length;i++){if(a[i].length>1&&!seen[a[i]]){seen[a[i]]=1;out.push(a[i]);}}
+    return out;
+  }
+  function lcp(a,b){
+    var i=0,m=Math.min(a.length,b.length);
+    while(i<m&&a.charAt(i)===b.charAt(i))i++;
+    return i;
+  }
+  /* tolerance ke skloňování: předpona slova, nebo dost dlouhá společná předpona.
+     Prahy jsou schválně přísné – volnější pravidlo spojovalo „dluhopisy“ s „dluhu“. */
+  function wordHit(q,w){
+    if(w.indexOf(q)===0)return true;
+    if(q.length<4||w.length<4)return false;
+    var need=Math.max(4,Math.ceil(Math.max(q.length,w.length)*0.75));
+    return lcp(q,w)>=need;
+  }
+
+  /* jeden dokument = jedna událost i s textem svého článku */
+  function buildIndex(){
+    if(IDX)return;
+    var texts={},arts=document.querySelectorAll('.artsrc'),i;
+    for(i=0;i<arts.length;i++)
+      texts[arts[i].id.replace(/^art-/,'')]=arts[i].textContent.replace(/\s+/g,' ');
+    IDX=EVENTS.map(function(e){
+      var who=Array.isArray(e.w)?e.w:[e.w];
+      var names=who.map(function(k){return PERSONS[k]?PERSONS[k].name+' '+PERSONS[k].arc:'';}).join(' ');
+      var full=norm(e.yl+' '+e.t+' '+e.s+' '+names+' '+(texts[e.id]||''));
+      return {id:e.id,w:who,words:uniq(full.split(/[^a-z0-9]+/))};
+    });
+  }
+
+  /* porovnává se po slovech, ne přes celý text – hledání uvnitř slov
+     dávalo nesmysly („OKD“ se našlo v „málokdo“) */
+  function matches(d,qs){
+    for(var i=0;i<qs.length;i++){
+      var q=qs[i],hit=false;
+      for(var j=0;j<d.words.length;j++){if(wordHit(q,d.words[j])){hit=true;break;}}
+      if(!hit)return false;
+    }
+    return true;
+  }
+
+  function applyFilter(){
+    var raw=qEl.value.trim();
+    if(raw.length<2){clearFilter(true);return;}
+    buildIndex();
+    var qs=toks(raw);
+    if(!qs.length){clearFilter(true);return;}
+    var ids={},people={},nEv=0;
+    IDX.forEach(function(d){
+      if(!matches(d,qs))return;
+      ids[d.id]=1;nEv++;
+      d.w.forEach(function(k){if(ORDER.indexOf(k)>-1)people[k]=1;});
+    });
+    var ps=ORDER.filter(function(k){return people[k];});
+    if(!ps.length){
+      note.textContent='Nic nenalezeno';note.hidden=false;
+      setTimeout(function(){note.hidden=true;},2600);
+      return;
+    }
+    note.hidden=true;
+    flt={q:raw,ids:ids,nEv:nEv,nP:ps.length};
+    sel=ps;
+    renderSelector();render();
+    drawChip();
+    var top=root.getBoundingClientRect().top+window.pageYOffset
+            -(document.querySelector('.legend').offsetHeight+14);
+    window.scrollTo({top:top,behavior:'smooth'});
+  }
+
+  function drawChip(){
+    if(!flt){chip.hidden=true;return;}
+    chip.innerHTML='⌕ '+flt.q.replace(/[<>&]/g,'')+
+      ' <span class="cnt2">'+flt.nP+'\u00a0'+plural(flt.nP,'osobnost','osobnosti','osobností')+
+      ' · '+flt.nEv+'\u00a0'+plural(flt.nEv,'událost','události','událostí')+'</span>'+
+      '<span class="x" aria-hidden="true">×</span>';
+    chip.title='Zrušit filtr – vybrané osobnosti zůstanou';
+    chip.setAttribute('aria-label','Zrušit filtr hledání, vybrané osobnosti zůstanou');
+    chip.hidden=false;
+  }
+  function plural(n,a,b,c){return n===1?a:(n<5?b:c);}
+
+  /* zrušení filtru ponechá výběr osobností beze změny */
+  function clearFilter(silent){
+    if(!flt){chip.hidden=true;if(!silent)qEl.value='';return;}
+    flt=null;chip.hidden=true;
+    if(!silent)qEl.value='';
+    render();
+  }
+
+  qEl.addEventListener('focus',function(){if(!IDX)setTimeout(buildIndex,0);});
+  qEl.addEventListener('keydown',function(e){
+    if(e.key==='Enter'){e.preventDefault();applyFilter();}
+    else if(e.key==='Escape'){e.preventDefault();qEl.value='';clearFilter(true);qEl.blur();}
+  });
+  qEl.addEventListener('search',function(){if(!qEl.value.trim())clearFilter(true);});
+  chip.addEventListener('click',function(){clearFilter(false);qEl.focus();});
+  document.addEventListener('keydown',function(e){
+    if(e.key!=='/'||e.metaKey||e.ctrlKey||e.altKey)return;
+    var t=e.target.tagName;
+    if(t==='INPUT'||t==='TEXTAREA'||overlay.classList.contains('open'))return;
+    e.preventDefault();qEl.focus();qEl.select();
+  });
 
   /* selector interaction (min 2 persons enforced) */
   selectorEl.addEventListener('click',function(e){
@@ -2533,6 +2792,7 @@
     }else{
       sel.push(k);
     }
+    if(flt){flt=null;chip.hidden=true;qEl.value='';}
     renderSelector();render();
   });
 
@@ -2608,6 +2868,17 @@
       b.setAttribute('aria-pressed',String(b.getAttribute('data-zoom')===zoom));
     });
   });
+
+  /* razítko v patičce se odvozuje z nejnovějšího záznamu v protokolu oprav,
+     aby datum existovalo v dokumentu jen na jednom místě */
+  (function(){
+    var first=document.querySelector('.ab-log time'),
+        stamp=document.getElementById('aboutStamp'),
+        n=document.querySelectorAll('.ab-log li').length;
+    if(first&&stamp)
+      stamp.textContent='Ověřeno '+first.textContent.trim()+' · '+n+' '+
+        (n===1?'revize':(n<5?'revize':'revizí'));
+  })();
 
   /* init */
   renderSelector();

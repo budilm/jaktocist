@@ -3,7 +3,7 @@
 Interaktivní srovnávací časová osa životních drah sedmnácti osobností české politiky.
 Statická stránka bez závislostí a bez build kroku — jeden soubor `index.html`.
 
-**Živá verze:** https://budilm.github.io/jaktocist
+**Živá verze:** https://jaktocist.cz
 
 ## Co stránka umí
 
@@ -13,6 +13,7 @@ Statická stránka bez závislostí a bez build kroku — jeden soubor `index.ht
 - průsečíky — události s pevným obsazením, kde se dráhy protínají
 - srovnávací matice profilů v pěti tématech
 - přepínač Detail / Přehled
+- vyhledávání, které filtruje osu a samo vybere odpovídající osobnosti
 - plná textová verze v sekci `#archiv` — funguje i bez JavaScriptu
 
 ## Struktura
@@ -22,38 +23,67 @@ index.html          celá aplikace (HTML + CSS + JS + obsah článků)
 404.html            chybová stránka
 robots.txt          povolení indexace + odkaz na sitemapu
 sitemap.xml         mapa webu
+CNAME               vlastní doména pro GitHub Pages
 favicon.svg         ikona
 apple-touch-icon.png
 og-image.png        náhled pro sociální sítě (1200×630)
 .nojekyll           vypnutí Jekyllu na GitHub Pages
-.gitattributes      normalizace konců řádků (LF), PNG jako binární
-.gitignore          nezaverzované složky s podklady z chatu
 ```
 
 ## Nasazení na GitHub Pages
 
-Stránka běží jako *project page* na adrese `https://budilm.github.io/jaktocist/`.
-
-1. Obsah tohoto adresáře je v kořeni repozitáře `budilm/jaktocist`, větev `main`.
+1. Nahrát obsah tohoto adresáře do kořene repozitáře.
 2. **Settings → Pages → Source:** Deploy from a branch, větev `main`, složka `/ (root)`.
-
-## Přechod na vlastní doménu
-
-Stránka je zatím bez vlastní domény. Až doména bude registrovaná:
-
-1. Do kořene přidat soubor `CNAME` s jediným řádkem — názvem domény.
-2. **Settings → Pages → Custom domain:** vyplnit doménu, zaškrtnout *Enforce HTTPS*.
-3. U registrátora domény nastavit DNS:
+3. **Settings → Pages → Custom domain:** `jaktocist.cz`, zaškrtnout *Enforce HTTPS*.
+4. U registrátora domény nastavit DNS:
    - `A` záznamy pro kořen na `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-   - `CNAME` pro `www` na `budilm.github.io`
-4. Přepsat adresu na těchto místech:
-   - `robots.txt` — odkaz na sitemapu
-   - `sitemap.xml` — `<loc>`
-   - `index.html` — canonical, og:url, og:image, twitter:image, JSON-LD
-   - `404.html` — `href="/jaktocist/…"` zkrátit na `href="/…"`
+   - `CNAME` pro `www` na `<uzivatel>.github.io`
 
-Poslední bod platí jen pro vlastní doménu: na project page je stránka v podadresáři
-`/jaktocist/`, na vlastní doméně bude v kořeni.
+## Změna domény
+
+Adresa je na čtyřech místech: `CNAME`, `robots.txt`, `sitemap.xml` a v hlavičce
+`index.html` (canonical, og:url, og:image, JSON-LD). Nahradit `jaktocist.cz` novou doménou.
+
+## Vyhledávání jako filtr osy
+
+Vyhledávací pole v liště legendy nefunguje jako našeptávač, ale **řídí osu**.
+Po zadání dotazu a stisku Enter stránka:
+
+1. najde všechny události, v jejichž článku se výraz vyskytuje,
+2. automaticky vybere osobnosti, kterých se tyto události týkají,
+3. zobrazí na ose pouze tyto události.
+
+Vedle pole se objeví štítek s dotazem a počty. Kliknutím na něj se filtr zruší,
+ale **vybrané osobnosti zůstanou** — osa pak ukáže všechny jejich události,
+jako by je uživatel naklikal ručně. Filtr ruší i Escape a ruční změna výběru.
+
+Index se staví za běhu při prvním zaostření pole — z `EVENTS` a z článků v sekci
+`#archiv`. Nepoužívá knihovnu ani předgenerovaný soubor, takže **přidání osobnosti
+nevyžaduje ve vyhledávání žádný zásah**.
+
+Diakritika se normalizuje způsobem, který zachovává délku řetězce. Porovnává se
+po slovech, nikoli přes celý text — hledání uvnitř slov dávalo nesmysly
+(„OKD“ se našlo v „málokdo“). Skloňování řeší dvojí pravidlo: dotaz se shoduje se
+slovem, je-li jeho předponou, nebo sdílejí-li předponu delší než tři čtvrtiny
+délky delšího z nich. Volnější práh spojoval „dluhopisy“ s „dluhu“.
+Víceslovný dotaz funguje jako AND přes celou událost.
+
+## Patička
+
+Patička je sbalená (`<details class="about">`) a obsahuje čtyři bloky: **Co to je**,
+**Zdroje**, **Metoda** a **Opravy a revize**. Je to meta-informace o dokumentu —
+nikoli obsah. Právní stav jednotlivých kauz do ní **nepatří**: ten je vždy uveden
+přímo u příslušné události, kde má kontext a kde ho čtenář hledá.
+
+**Zápis nové revize** = přidat jeden `<li>` na začátek `.ab-log`:
+
+```html
+<li><time datetime="2026-11-04">4. 11. 2026</time><span>Popis změny.</span></li>
+```
+
+Datum je v dokumentu jen na tomto jediném místě. Razítko v hlavičce patičky
+(„Ověřeno … · N revizí“) se z nejnovějšího záznamu dopočítá samo, včetně počtu
+revizí a správného skloňování. Nikde jinde datum revize neaktualizujte.
 
 ## Datová vrstva
 
