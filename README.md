@@ -8,6 +8,8 @@ Statická stránka bez závislostí a bez build kroku — jeden soubor `index.ht
 ## Co stránka umí
 
 - výběr jedné až sedmnácti osobností, rozvržení se výběru přizpůsobí
+- paralelní sloupce zůstávají zachovány při libovolném počtu osob; sloupec nikdy
+  neklesne pod čitelnou šířku a při velkém počtu se osa posouvá vodorovně
 - centrální chronologická osa s ročníky, po stranách dráhy vybraných osob
 - ke každé ze 144 událostí rozklikávací článek (celkem 144 článků)
 - průsečíky — události s pevným obsazením, kde se dráhy protínají

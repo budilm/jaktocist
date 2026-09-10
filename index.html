@@ -354,6 +354,10 @@
     background:var(--ink);color:var(--paper);padding:2px 6px;margin-right:8px;
   }
   .mode-solo .yr-inline{display:inline-block}
+  /* šířku i vodorovné odsazení osy dopočítává applyWidth() měřením,
+     nikoli z jednotek vw – ty zahrnují šířku svislého posuvníku a osa
+     pak přesahovala za levý okraj dokumentu, kam nelze doscrollovat */
+
   /* ---------- solo (jedna osobnost) ---------- */
   .timeline.mode-solo{max-width:700px;margin:0 auto}
   .mode-solo .spine{left:16px;transform:none;width:4px}
@@ -2541,6 +2545,7 @@
 
   function render(){
     var ps=selPersons();var n=ps.length;var duel=(n===2);var solo=(n===1);
+    var single=solo;   /* jednosloupcové rozvržení má jen samostatný profil */
     var L=Math.ceil(n/2),Rr=n-L;
     function side(k,inner){return '<div class="side" style="--k:'+k+'">'+(inner||'')+'</div>';}
 
@@ -2631,7 +2636,7 @@
           +'<p>'+ev.s+'</p>'
           +'<span class="more">Číst článek →</span>'
           +'</div>';
-        if(solo){
+        if(single){
           html+='<div class="lrow reveal" style="--n:1"><div style="grid-column:1">'+card+'</div></div>';
         }else{
           var onLeft=i<L;
@@ -2644,7 +2649,10 @@
         }
       }
     });
-    root.className='timeline '+(flt?'filtered ':'')+(solo?'mode-solo':'mode-rail')+(n>3?' dense':'')+(zoom==='out'?' zoom-out':'');
+    root.className='timeline '+(flt?'filtered ':'')
+      +(solo?'mode-solo':'mode-rail')
+      +(n>3?' dense':'')+(zoom==='out'?' zoom-out':'');
+    applyWidth(n);
 
     root.innerHTML=html;
     observeReveals();
@@ -2778,6 +2786,59 @@
     e.preventDefault();qEl.focus();qEl.select();
   });
 
+  /* ---------- šířka osy podle počtu sloupců ----------
+     Sloupec nesmí klesnout pod čitelnou šířku. Pokud se osa do okna nevejde,
+     roztáhne se přes celou šířku dokumentu a stránka se posouvá vodorovně;
+     záhlaví se jmény je součástí osy, takže se posouvá spolu se sloupci. */
+  var LANE_MIN=152, LANE_MIN_COMPACT=118, RAIL=92, GUTTER=20;
+  function applyWidth(n){
+    root.style.width='';root.style.marginLeft='';
+    legendWidth(null);
+    var avail=document.documentElement.clientWidth;   /* bez svislého posuvníku */
+    if(n<2||avail<=760)return;
+    var gap=n>3?12:18,
+        need=n*(zoom==='out'?LANE_MIN_COMPACT:LANE_MIN)+RAIL+Math.max(0,n-2)*gap,
+        base=n>4?Math.min(avail*0.94,1640):1060;
+    if(need<=base){
+      if(n>4)setWidth(Math.round(base),avail);
+      return;
+    }
+    setWidth(Math.round(need),avail);
+  }
+  /* Osu odsadíme o její skutečnou vzdálenost od levého okraje dokumentu.
+     Vejde-li se do okna, zůstane vystředěná; jinak začne u levého okraje
+     s malým okrajem a stránka se posouvá vodorovně. */
+  function setWidth(w,avail){
+    var left=root.getBoundingClientRect().left+window.pageXOffset;
+    root.style.width=w+'px';
+    if(w<=avail-2*GUTTER){
+      root.style.marginLeft=Math.round((avail-w)/2-left)+'px';
+      legendWidth(null);
+    }else{
+      root.style.marginLeft=Math.round(GUTTER-left)+'px';
+      legendWidth(w+2*GUTTER);
+    }
+    syncLegend();   /* změna šířky lišty může změnit její výšku, podle níž se lepí záhlaví */
+  }
+  /* Lepicí lišta je široká jako okno. Jakmile se stránka posouvá vodorovně,
+     její neprůhledné pozadí přestane stačit a karty pod ní prosvítají – proto
+     ji roztáhneme na šířku osy a obsah zarovnáme vlevo, aby zůstal viditelný. */
+  function legendWidth(px){
+    var bar=document.querySelector('.legend');
+    if(!bar)return;
+    var wrap=bar.querySelector('.wrap');
+    bar.style.width=px?px+'px':'';
+    if(wrap){
+      wrap.style.marginLeft=px?GUTTER+'px':'';
+      wrap.style.marginRight=px?'0':'';
+    }
+  }
+  var wTimer=null;
+  window.addEventListener('resize',function(){
+    clearTimeout(wTimer);
+    wTimer=setTimeout(function(){applyWidth(selPersons().length);syncLegend();},150);
+  });
+
   /* selector interaction (min 2 persons enforced) */
   selectorEl.addEventListener('click',function(e){
     var b=e.target.closest('.chip');if(!b)return;
@@ -2864,6 +2925,7 @@
     if(!zb)return;
     zoom=zb.getAttribute('data-zoom');
     root.classList.toggle('zoom-out',zoom==='out');
+    applyWidth(selPersons().length);
     document.querySelectorAll('.zoombtn').forEach(function(b){
       b.setAttribute('aria-pressed',String(b.getAttribute('data-zoom')===zoom));
     });
