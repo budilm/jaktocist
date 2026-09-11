@@ -273,13 +273,14 @@
   }
   .legend .wrap{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
   .keys{display:flex;gap:22px;align-items:center;flex-wrap:wrap;flex:1 1 auto;min-width:0}
+  .tools{display:flex;gap:18px;align-items:center;flex:0 0 auto}
   .key{
     font-family:"IBM Plex Mono",monospace;font-size:11.5px;font-weight:600;
     letter-spacing:.14em;text-transform:uppercase;display:flex;align-items:center;gap:8px;
   }
   .swatch{width:22px;height:5px;display:inline-block}
   .hint{
-    margin-left:auto;font-family:"IBM Plex Mono",monospace;font-size:11px;
+    font-family:"IBM Plex Mono",monospace;font-size:11px;
     letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
   }
 
@@ -397,8 +398,7 @@
   .r-shared p{font-size:13.5px;color:#33363D;max-width:560px;margin:0 auto}
 
   /* ---------- zoom ---------- */
-  .zoomseg{display:inline-flex;margin-left:auto}
-  .zoomseg~.hint{margin-left:18px}
+  .zoomseg{display:inline-flex}
   .zoombtn{
     font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:600;
     letter-spacing:.12em;text-transform:uppercase;
@@ -422,7 +422,7 @@
   .timeline.zoom-out .r-shared h4{font-size:15.5px}
 
   /* ---------- vyhledávání ---------- */
-  .searchbox{position:relative;flex:0 0 auto;width:250px;margin-left:auto}
+  .searchbox{position:relative;flex:0 0 auto;width:250px}
   .searchbox .ico{
     position:absolute;left:9px;top:50%;transform:translateY(-50%);
     font-size:14px;color:var(--muted);pointer-events:none;
@@ -646,9 +646,21 @@
     .profiles{grid-template-columns:1fr}
     .profile{border-left:none;border-top:1px solid var(--rule)}
     .profile:first-child{border-top:none}
-    .hint{margin-left:0;width:100%}
-    .searchbox{width:100%;margin-left:0;order:-1}
-    .fltchip{order:-1;width:100%;justify-content:flex-start}
+    /* legenda nesmí ukrojit obrazovku – klíče na jeden vodorovně posuvný
+       řádek, nápověda pryč, ovládání a hledání nad ně */
+    .legend{padding:7px 0}
+    .legend .wrap{gap:9px}
+    .hint{display:none}
+    .keys{
+      flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;
+      gap:16px;width:100%;order:0;padding-bottom:1px;
+      scrollbar-width:none;
+    }
+    .keys::-webkit-scrollbar{display:none}
+    .key{flex:0 0 auto}
+    .tools{order:-1}
+    .searchbox{width:100%;margin-left:0;order:-2}
+    .fltchip{order:-2;width:100%;justify-content:flex-start}
     .zoomseg{margin-left:0}
     .zoomseg~.hint{margin-left:0}
     .lanehead{display:none}
@@ -701,6 +713,7 @@
 <div class="legend">
   <div class="wrap">
     <div class="keys" id="legendKeys"></div>
+    <div class="tools" id="legendTools"></div>
     <div class="searchbox">
       <span class="ico" aria-hidden="true">⌕</span>
       <input id="q" type="search" autocomplete="off" spellcheck="false"
@@ -2512,6 +2525,7 @@
   var profilesEl=document.getElementById('profiles');
   var mirrorWrap=document.getElementById('mirrorWrap');
   var legendKeys=document.getElementById('legendKeys');
+  var legendTools=document.getElementById('legendTools');
   var root=document.getElementById('timelineRoot');
 
   function selPersons(){return ORDER.filter(function(k){return sel.indexOf(k)>-1;});}
@@ -2578,8 +2592,9 @@
     legendKeys.innerHTML=ps.map(function(k){
       return '<span class="key"><span class="swatch" style="background:'+PERSONS[k].color+'"></span>'+PERSONS[k].name+'</span>';
     }).join('')
-    +(solo?'':'<span class="key"><span class="swatch" style="background:'+grad(ps)+'"></span>Průsečík</span>')
-    +'<span class="zoomseg" role="group" aria-label="Úroveň zobrazení">'
+    +(solo?'':'<span class="key"><span class="swatch" style="background:'+grad(ps)+'"></span>Průsečík</span>');
+    legendTools.innerHTML=
+     '<span class="zoomseg" role="group" aria-label="Úroveň zobrazení">'
     +'<button class="zoombtn" data-zoom="detail" aria-pressed="'+(zoom==='detail')+'">Detail</button>'
     +'<button class="zoombtn" data-zoom="out" aria-pressed="'+(zoom==='out')+'">Přehled</button>'
     +'</span>'
