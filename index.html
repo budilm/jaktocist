@@ -272,13 +272,7 @@
     border-top:1px solid var(--ink);border-bottom:1px solid var(--rule);padding:10px 0;
   }
   .legend .wrap{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
-  .keys{display:flex;gap:22px;align-items:center;flex-wrap:wrap;flex:1 1 auto;min-width:0}
   .tools{display:flex;gap:18px;align-items:center;flex:0 0 auto}
-  .key{
-    font-family:"IBM Plex Mono",monospace;font-size:11.5px;font-weight:600;
-    letter-spacing:.14em;text-transform:uppercase;display:flex;align-items:center;gap:8px;
-  }
-  .swatch{width:22px;height:5px;display:inline-block}
   .hint{
     font-family:"IBM Plex Mono",monospace;font-size:11px;
     letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
@@ -384,7 +378,9 @@
     letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
   }
   .cast i{width:8px;height:8px;border-radius:50%;display:inline-block;flex:none}
-  .zoom-out .cast{display:none}
+  /* obsazení průsečíku zůstává i v Přehledu – po odebrání legendy je to
+     jediné místo, kde jsou u společné události vidět jména a barvy */
+  .timeline.zoom-out .cast{margin-bottom:0;gap:10px}
   .mode-solo .cast{justify-content:flex-start}
   .r-shared .card{
     max-width:660px;margin:0 auto;border:1px solid var(--ink);
@@ -422,7 +418,7 @@
   .timeline.zoom-out .r-shared h4{font-size:15.5px}
 
   /* ---------- vyhledávání ---------- */
-  .searchbox{position:relative;flex:0 0 auto;width:250px}
+  .searchbox{position:relative;flex:0 0 auto;width:250px;margin-left:auto}
   .searchbox .ico{
     position:absolute;left:9px;top:50%;transform:translateY(-50%);
     font-size:14px;color:var(--muted);pointer-events:none;
@@ -646,21 +642,13 @@
     .profiles{grid-template-columns:1fr}
     .profile{border-left:none;border-top:1px solid var(--rule)}
     .profile:first-child{border-top:none}
-    /* legenda nesmí ukrojit obrazovku – klíče na jeden vodorovně posuvný
-       řádek, nápověda pryč, ovládání a hledání nad ně */
+    /* lišta má na mobilu jen hledání a přepínač zobrazení */
     .legend{padding:7px 0}
     .legend .wrap{gap:9px}
     .hint{display:none}
-    .keys{
-      flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;
-      gap:16px;width:100%;order:0;padding-bottom:1px;
-      scrollbar-width:none;
-    }
-    .keys::-webkit-scrollbar{display:none}
-    .key{flex:0 0 auto}
-    .tools{order:-1}
+    .tools{order:0}
     .searchbox{width:100%;margin-left:0;order:-2}
-    .fltchip{order:-2;width:100%;justify-content:flex-start}
+    .fltchip{order:-1;width:100%;justify-content:flex-start}
     .zoomseg{margin-left:0}
     .zoomseg~.hint{margin-left:0}
     .lanehead{display:none}
@@ -712,7 +700,6 @@
 
 <div class="legend">
   <div class="wrap">
-    <div class="keys" id="legendKeys"></div>
     <div class="tools" id="legendTools"></div>
     <div class="searchbox">
       <span class="ico" aria-hidden="true">⌕</span>
@@ -2524,7 +2511,6 @@
   var selNote=document.getElementById('selNote');
   var profilesEl=document.getElementById('profiles');
   var mirrorWrap=document.getElementById('mirrorWrap');
-  var legendKeys=document.getElementById('legendKeys');
   var legendTools=document.getElementById('legendTools');
   var root=document.getElementById('timelineRoot');
 
@@ -2589,10 +2575,8 @@
     document.getElementById('cmpTable').innerHTML=head+body;
 
     /* legend */
-    legendKeys.innerHTML=ps.map(function(k){
-      return '<span class="key"><span class="swatch" style="background:'+PERSONS[k].color+'"></span>'+PERSONS[k].name+'</span>';
-    }).join('')
-    +(solo?'':'<span class="key"><span class="swatch" style="background:'+grad(ps)+'"></span>Průsečík</span>');
+    /* Samostatný seznam jmen v liště odpadá: na desktopu je nese ukotvené
+       záhlaví sloupců, na mobilu jmenovka na každé kartě – obojí i s barvou. */
     legendTools.innerHTML=
      '<span class="zoomseg" role="group" aria-label="Úroveň zobrazení">'
     +'<button class="zoombtn" data-zoom="detail" aria-pressed="'+(zoom==='detail')+'">Detail</button>'
