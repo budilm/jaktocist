@@ -59,6 +59,11 @@ Vedle pole se objeví štítek s dotazem a počty. Kliknutím na něj se filtr z
 ale **vybrané osobnosti zůstanou** — osa pak ukáže všechny jejich události,
 jako by je uživatel naklikal ručně. Filtr ruší i Escape a ruční změna výběru.
 
+Dokud je filtr aktivní, hledaný výraz se zvýrazní (`<mark class="hl">`) na kartách
+osy i v otevřeném článku; článek se k prvnímu výskytu sám posune. Zvýraznění
+používá stejná pravidla shody jako filtr, takže je vyznačeno přesně to, co událost
+do výsledku dostalo. Zdrojové články v `#archiv` se nemění.
+
 Index se staví za běhu při prvním zaostření pole — z `EVENTS` a z článků v sekci
 `#archiv`. Nepoužívá knihovnu ani předgenerovaný soubor, takže **přidání osobnosti
 nevyžaduje ve vyhledávání žádný zásah**.

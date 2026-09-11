@@ -460,6 +460,14 @@
   .timeline.filtered .era h3{color:#5D6068}
   .timeline.filtered .era p,
   .timeline.filtered .era .range{color:#8A867C}
+  /* zvýraznění hledaného výrazu – text vždy v barvě inkoustu; výplň je nutné
+     nastavit výslovně, v nadpisech s přechodem (background-clip:text) by jinak
+     zdědila průhlednost a slovo by pod zvýrazňovačem zmizelo */
+  mark.hl{
+    background:#F5D55C;color:var(--ink);-webkit-text-fill-color:var(--ink);
+    padding:0 .12em;margin:0 -.04em;
+    -webkit-box-decoration-break:clone;box-decoration-break:clone;
+  }
 
   /* ---------- statický archiv ---------- */
   .archive{border-top:4px solid var(--ink);padding:34px 0 10px}
@@ -2654,6 +2662,7 @@
     applyWidth(n);
 
     root.innerHTML=html;
+    if(flt)root.querySelectorAll('.card').forEach(function(c){highlight(c,flt.qs);});
     observeReveals();
     syncLegend();
   }
@@ -2723,6 +2732,30 @@
     return true;
   }
 
+  /* zvýraznění podle stejných pravidel jako filtr – po slovech a s tolerancí
+     ke skloňování; normalizace zachovává délku, takže indexy sedí v původním textu */
+  function highlight(el,qs){
+    var walker=document.createTreeWalker(el,NodeFilter.SHOW_TEXT,null,false),nodes=[],t,n=0;
+    while((t=walker.nextNode())){if(t.parentNode.nodeName!=='MARK')nodes.push(t);}
+    nodes.forEach(function(node){
+      var txt=node.nodeValue,re=/[a-z0-9]+/g,low=norm(txt),m,last=0,frag=null;
+      while((m=re.exec(low))){
+        var w=m[0],hit=false;
+        for(var i=0;i<qs.length;i++){if(wordHit(qs[i],w)){hit=true;break;}}
+        if(!hit)continue;
+        if(!frag)frag=document.createDocumentFragment();
+        if(m.index>last)frag.appendChild(document.createTextNode(txt.slice(last,m.index)));
+        var mk=document.createElement('mark');
+        mk.className='hl';mk.textContent=txt.slice(m.index,m.index+w.length);
+        frag.appendChild(mk);last=m.index+w.length;n++;
+      }
+      if(!frag)return;
+      if(last<txt.length)frag.appendChild(document.createTextNode(txt.slice(last)));
+      node.parentNode.replaceChild(frag,node);
+    });
+    return n;
+  }
+
   function applyFilter(){
     var raw=qEl.value.trim();
     if(raw.length<2){clearFilter(true);return;}
@@ -2742,7 +2775,7 @@
       return;
     }
     note.hidden=true;
-    flt={q:raw,ids:ids,nEv:nEv,nP:ps.length};
+    flt={q:raw,qs:qs,ids:ids,nEv:nEv,nP:ps.length};
     sel=ps;
     renderSelector();render();
     drawChip();
@@ -2792,6 +2825,7 @@
   var LANE_MIN=152, LANE_MIN_COMPACT=118, RAIL=92, GUTTER=20;
   function applyWidth(n){
     root.style.width='';root.style.marginLeft='';
+    root.classList.remove('overflowing');
     legendWidth(null);
     var avail=document.documentElement.clientWidth;   /* bez svislého posuvníku */
     if(n<2||avail<=760)return;
@@ -2815,6 +2849,7 @@
       legendWidth(null);
     }else{
       root.style.marginLeft=Math.round(GUTTER-left)+'px';
+      root.classList.add('overflowing');
       legendWidth(w+2*GUTTER);
     }
     syncLegend();   /* změna šířky lišty může změnit její výšku, podle níž se lepí záhlaví */
@@ -2883,6 +2918,7 @@
     var src=document.getElementById('art-'+id);
     if(!src)return;
     content.innerHTML=src.innerHTML;
+    if(flt)highlight(content,flt.qs);
     var pref=id.split('-')[0];
     if(PREFIX[pref]){
       box.style.borderImage='';
@@ -2900,6 +2936,12 @@
     document.body.classList.add('locked');
     overlay.scrollTop=0;
     closeBtn.focus();
+    /* je-li první výskyt mimo obrazovku, článek se k němu posune */
+    var first=flt?content.querySelector('mark.hl'):null;
+    if(first){
+      var r=first.getBoundingClientRect();
+      if(r.bottom>overlay.clientHeight*.85)overlay.scrollTop=r.top-overlay.clientHeight*.3;
+    }
   }
   function closeArticle(){
     overlay.classList.remove('open');
