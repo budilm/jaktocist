@@ -220,8 +220,18 @@
     font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.06em;
     color:var(--muted);margin:0 0 30px;
   }
-  .sel-note.warn{color:#9C2B2B;font-weight:600}
+  /* akce, nikoli jméno – čárkovaný obrys ji odliší od tlačítek osobností */
+  .chip-clear{
+    display:inline-flex;align-items:center;gap:7px;
+    padding:9px 13px;border:1px dashed var(--muted);background:transparent;
+    font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:600;
+    letter-spacing:.1em;text-transform:uppercase;color:var(--muted);cursor:pointer;
+  }
+  .chip-clear .x{font-family:"Archivo",sans-serif;font-weight:800;font-size:14px;line-height:1}
+  .chip-clear:hover{border-style:solid;border-color:var(--ink);color:var(--ink)}
+  .chip-clear:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
 
+  .profiles:empty{border-top:none}
   .profiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));border-top:1px solid var(--ink)}
   .profile{padding:20px 22px 26px;position:relative;border-left:1px solid var(--rule)}
   .profile:first-child{border-left:none}
@@ -297,6 +307,16 @@
     font-weight:800;font-size:19px;text-transform:uppercase;margin:4px 0 6px;
   }
   .era p{font-size:13.5px;color:#3A3D44;max-width:520px;margin:0 auto}
+  /* prázdný výběr */
+  .empty{
+    max-width:560px;margin:0 auto 40px;text-align:center;
+    border:1px dashed var(--muted);padding:26px 24px 28px;
+  }
+  .empty h3{
+    font-family:"Archivo",sans-serif;font-variation-settings:"wdth" 112;
+    font-weight:800;font-size:19px;text-transform:uppercase;margin-bottom:8px;
+  }
+  .empty p{font-size:13.5px;color:#3A3D44;max-width:440px;margin:0 auto}
 
   /* lane headers (3+ persons) */
   .lanehead{
@@ -2516,7 +2536,6 @@
   /* ================= RENDER ================= */
   var titleEl=document.getElementById('titleNames');
   var selectorEl=document.getElementById('selector');
-  var selNote=document.getElementById('selNote');
   var profilesEl=document.getElementById('profiles');
   var mirrorWrap=document.getElementById('mirrorWrap');
   var legendTools=document.getElementById('legendTools');
@@ -2548,7 +2567,8 @@
     selectorEl.innerHTML=ORDER.map(function(k){
       var p=PERSONS[k];var on=sel.indexOf(k)>-1;
       return '<button class="chip" data-person="'+k+'" aria-pressed="'+on+'"><span class="dot" style="background:'+p.color+'"></span>'+p.name+'</button>';
-    }).join('');
+    }).join('')
+    +(sel.length?'<button class="chip-clear" type="button" title="Odznačit všechny osobnosti"><span class="x" aria-hidden="true">×</span>Zrušit výběr</button>':'');
   }
 
   function render(){
@@ -2561,6 +2581,7 @@
     titleEl.innerHTML=ps.map(function(k){
       return '<span style="color:'+PERSONS[k].color+'">'+PERSONS[k].surname+'</span>';
     }).join(solo?'':' <span class="x" style="'+gradText(grad(ps))+'">×</span> ');
+    if(!n)titleEl.textContent='Paralelní životy';
     titleEl.classList.toggle('small',n>2);
     titleEl.classList.toggle('tiny',n>3);
 
@@ -2581,6 +2602,7 @@
       }).join('')+'</tr>';
     }).join('')+'</tbody>';
     document.getElementById('cmpTable').innerHTML=head+body;
+    mirrorWrap.hidden=!n;
 
     /* legend */
     /* Samostatný seznam jmen v liště odpadá: na desktopu je nese ukotvené
@@ -2591,6 +2613,16 @@
     +'<button class="zoombtn" data-zoom="out" aria-pressed="'+(zoom==='out')+'">Přehled</button>'
     +'</span>'
     +'<span class="hint">Kliknutím na událost otevřeš článek</span>';
+
+    /* prázdný výběr – místo osy výzva k novému výběru */
+    if(!n){
+      root.className='timeline';
+      applyWidth(0);
+      root.innerHTML='<div class="empty"><h3>Není vybrána žádná osobnost</h3>'
+        +'<p>Vyber jméno nahoře – jedna osobnost ukáže samostatný životopis, víc jich osa srovná vedle sebe. Osobnosti vybere i hledání v liště.</p></div>';
+      syncLegend();
+      return;
+    }
 
     /* timeline */
     var evs=EVENTS.filter(visible).sort(function(a,b){return a.y-b.y;});
@@ -2873,22 +2905,21 @@
     wTimer=setTimeout(function(){applyWidth(selPersons().length);syncLegend();},150);
   });
 
-  /* selector interaction (min 2 persons enforced) */
+  /* výběr osobností; prázdný výběr je platný stav – osa pak vyzve k novému výběru */
   selectorEl.addEventListener('click',function(e){
-    var b=e.target.closest('.chip');if(!b)return;
-    var k=b.getAttribute('data-person');
-    if(sel.indexOf(k)>-1){
-      if(sel.length<=1){
-        selNote.classList.add('warn');
-        setTimeout(function(){selNote.classList.remove('warn');},1200);
-        return;
-      }
-      sel=sel.filter(function(x){return x!==k;});
+    var clr=e.target.closest('.chip-clear'),b=e.target.closest('.chip');
+    if(!clr&&!b)return;
+    if(clr){
+      sel=[];
     }else{
-      sel.push(k);
+      var k=b.getAttribute('data-person');
+      if(sel.indexOf(k)>-1)sel=sel.filter(function(x){return x!==k;});
+      else sel.push(k);
     }
     if(flt){flt=null;chip.hidden=true;qEl.value='';}
     renderSelector();render();
+    /* tlačítko se po vyprázdnění skryje – fokus přejde na první jméno */
+    if(clr)selectorEl.querySelector('.chip').focus();
   });
 
   /* scroll reveal */
