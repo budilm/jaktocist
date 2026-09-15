@@ -30,6 +30,8 @@ CNAME               vlastní doména pro GitHub Pages
 favicon.svg         ikona
 apple-touch-icon.png
 og-image.png        náhled pro sociální sítě (1200×630)
+fonts/              písma Archivo, IBM Plex Sans a IBM Plex Mono (woff2, znaky
+                    latin a latin-ext) s licencemi OFL – stránka nenačítá nic z cizích serverů
 .nojekyll           vypnutí Jekyllu na GitHub Pages
 ```
 
