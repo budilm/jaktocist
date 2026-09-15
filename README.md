@@ -91,9 +91,21 @@ přímo u příslušné události, kde má kontext a kde ho čtenář hledá.
 <li><time datetime="2026-11-04">4. 11. 2026</time><span>Popis změny.</span></li>
 ```
 
-Datum je v dokumentu jen na tomto jediném místě. Razítko v hlavičce patičky
-(„Ověřeno … · N revizí“) se z nejnovějšího záznamu dopočítá samo, včetně počtu
-revizí a správného skloňování. Nikde jinde datum revize neaktualizujte.
+Záznam o **auditu celé osy** navíc dostane atribut `data-audit`:
+
+```html
+<li data-audit><time datetime="2026-09-09">9. 9. 2026</time><span>Externí faktografický audit: …</span></li>
+```
+
+Dílčí kontrola jednotlivých článků (například fact-check nově přidané osobnosti)
+atribut nedostává a v textu záznamu je vždy uveden její rozsah.
+
+Data jsou v dokumentu jen na tomto jediném místě. Razítko v hlavičce patičky se
+z protokolu dopočítá samo: „Ověřeno …“ je datum posledního auditu celé osy,
+„upraveno …“ datum nejnovějšího záznamu (zobrazí se, jen když je novější než
+audit), a za nimi počet revizí se správným skloňováním – například
+„Ověřeno 9. 9. 2026 · upraveno 15. 9. 2026 · 6 revizí“. Nikde jinde data
+neaktualizujte.
 
 ## Datová vrstva
 
