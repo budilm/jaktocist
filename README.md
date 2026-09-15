@@ -1,6 +1,6 @@
 # Paralelní životy
 
-Interaktivní srovnávací časová osa životních drah osmnácti osobností české politiky.
+Interaktivní srovnávací časová osa životních drah devatenácti osobností české politiky.
 Statická stránka bez závislostí a bez build kroku — jeden soubor `index.html`.
 
 **Živá verze:** https://jaktocist.cz
@@ -12,7 +12,7 @@ Statická stránka bez závislostí a bez build kroku — jeden soubor `index.ht
 - paralelní sloupce zůstávají zachovány při libovolném počtu osob; sloupec nikdy
   neklesne pod čitelnou šířku a při velkém počtu se osa posouvá vodorovně
 - centrální chronologická osa s ročníky, po stranách dráhy vybraných osob
-- ke každé ze 151 událostí rozklikávací článek (celkem 151 článků)
+- ke každé ze 156 událostí rozklikávací článek (celkem 156 článků)
 - průsečíky — události s pevným obsazením, kde se dráhy protínají
 - srovnávací matice profilů v pěti tématech
 - přepínač Detail / Přehled
