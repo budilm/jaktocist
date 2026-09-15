@@ -1,6 +1,6 @@
 # Paralelní životy
 
-Interaktivní srovnávací časová osa životních drah sedmnácti osobností české politiky.
+Interaktivní srovnávací časová osa životních drah osmnácti osobností české politiky.
 Statická stránka bez závislostí a bez build kroku — jeden soubor `index.html`.
 
 **Živá verze:** https://jaktocist.cz
@@ -12,7 +12,7 @@ Statická stránka bez závislostí a bez build kroku — jeden soubor `index.ht
 - paralelní sloupce zůstávají zachovány při libovolném počtu osob; sloupec nikdy
   neklesne pod čitelnou šířku a při velkém počtu se osa posouvá vodorovně
 - centrální chronologická osa s ročníky, po stranách dráhy vybraných osob
-- ke každé ze 144 událostí rozklikávací článek (celkem 144 článků)
+- ke každé ze 151 událostí rozklikávací článek (celkem 151 článků)
 - průsečíky — události s pevným obsazením, kde se dráhy protínají
 - srovnávací matice profilů v pěti tématech
 - přepínač Detail / Přehled
@@ -100,7 +100,7 @@ Veškerý obsah je v `<script>` na konci `index.html`:
 | struktura | obsah |
 |---|---|
 | `PERSONS` | osobnosti — `name`, `surname`, `color`, `born`, `arc`, `sum` |
-| `ORDER` | pořadí osob ve výběru i ve sloupcích osy |
+| `ORDER` | pořadí osob ve výběru i ve sloupcích osy – vždy abecedně podle příjmení (viz Řazení jmen) |
 | `THEMES` | řádky srovnávací matice (pět témat) |
 | `FACTS` | hodnoty matice pro každou osobu a téma |
 | `EVENTS` | události; `w` je klíč osoby, nebo pole klíčů u průsečíku |
@@ -110,20 +110,40 @@ Veškerý obsah je v `<script>` na konci `index.html`:
 ## Přidání další osobnosti
 
 1. `PERSONS` — nový záznam se všemi šesti poli
-2. `ORDER` — zařadit klíč do pořadí
+2. `ORDER` — zařadit klíč na místo podle abecedy příjmení (viz Řazení jmen)
 3. `FACTS` — vyplnit všech pět témat ze `THEMES`
 4. `EVENTS` — události s unikátním `id` ve tvaru `<písmeno>-<rok>`
 5. `PREFIX` — namapovat počáteční písmeno id na klíč osoby (jinak se článek otevře
    se špatnou barvou)
 6. CSS — proměnná `--klic` v `:root` a pravidlo `.tag.t-klic`
-7. Sekce `#archiv` — nový blok `<details class="arch-person" style="--pc:BARVA">`
+7. Sekce `#archiv` — nový blok `<details class="arch-person" style="--pc:BARVA">` na místo podle abecedy
    s články, každý jako `<article class="artsrc" id="art-ID">`
 8. Volitelně doplnit osobu do obsazení `w:[…]` u existujících průsečíků
 9. Aktualizovat počty v hlavičce (`description`, `keywords`, JSON-LD), v nadpisu
    archivu, v README a v `og-image.png`
 
 **Kontrolní pravidlo:** počet `id` v `EVENTS` musí přesně odpovídat počtu
-`<article id="art-…">` v archivu. Barvy osob musí být unikátní.
+`<article id="art-…">` v archivu. Barvy osob musí být unikátní. Pořadí osob musí
+odpovídat abecedě příjmení.
+
+## Řazení jmen
+
+Osobnosti jsou **všude řazeny abecedně podle příjmení**, podle české abecedy:
+Č, Ř, Š, Ž a Ch jsou samostatná písmena (Rakušan je před Řehkou, Schillerová
+patří pod S). Na křestním jménu ani na funkci nezáleží.
+
+Pořadí určuje pole `ORDER` a z něj se odvozuje výběr jmen, pořadí sloupců na ose,
+srovnávací matice i obsazení průsečíků. Ve stejném pořadí musí být ručně udržované:
+
+- bloky osob v sekci `#archiv` (průsečíky zůstávají jako poslední blok),
+- jména v `<meta name="keywords">` a v seznamu `about` v JSON-LD,
+- barevné pruhy v `og-image.png`.
+
+Kontrola v konzoli prohlížeče – musí vrátit `true`:
+
+```js
+ORDER.join()===ORDER.slice().sort((a,b)=>PERSONS[a].surname.localeCompare(PERSONS[b].surname,'cs')).join()
+```
 
 ## Redakční standard
 
