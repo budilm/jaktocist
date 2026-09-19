@@ -1,6 +1,6 @@
 # Paralelní životy
 
-Interaktivní srovnávací časová osa životních drah devatenácti osobností české politiky.
+Interaktivní srovnávací časová osa životních drah dvaceti osobností české politiky.
 Statická stránka bez závislostí a bez build kroku — jeden soubor `index.html`.
 
 **Živá verze:** https://jaktocist.cz
@@ -12,7 +12,7 @@ Statická stránka bez závislostí a bez build kroku — jeden soubor `index.ht
 - paralelní sloupce zůstávají zachovány při libovolném počtu osob; sloupec nikdy
   neklesne pod čitelnou šířku a při velkém počtu se osa posouvá vodorovně
 - centrální chronologická osa s ročníky, po stranách dráhy vybraných osob
-- ke každé ze 156 událostí rozklikávací článek (celkem 156 článků)
+- ke každé ze 162 událostí rozklikávací článek (celkem 162 článků)
 - průsečíky — události s pevným obsazením, kde se dráhy protínají
 - srovnávací matice profilů v pěti tématech
 - přepínač Detail / Přehled
@@ -144,7 +144,8 @@ odpovídat abecedě příjmení.
 
 Osobnosti jsou **všude řazeny abecedně podle příjmení**, podle české abecedy:
 Č, Ř, Š, Ž a Ch jsou samostatná písmena (Rakušan je před Řehkou, Schillerová
-patří pod S). Na křestním jménu ani na funkci nezáleží.
+patří pod S). Na funkci nezáleží. Křestní jméno rozhoduje jen při shodě příjmení
+– Hayato Okamura stojí před Tomiem Okamurou.
 
 Pořadí určuje pole `ORDER` a z něj se odvozuje výběr jmen, pořadí sloupců na ose,
 srovnávací matice i obsazení průsečíků. Ve stejném pořadí musí být ručně udržované:
@@ -156,8 +157,18 @@ srovnávací matice i obsazení průsečíků. Ve stejném pořadí musí být r
 Kontrola v konzoli prohlížeče – musí vrátit `true`:
 
 ```js
-ORDER.join()===ORDER.slice().sort((a,b)=>PERSONS[a].surname.localeCompare(PERSONS[b].surname,'cs')).join()
+ORDER.join()===ORDER.slice().sort((a,b)=>
+  PERSONS[a].surname.localeCompare(PERSONS[b].surname,'cs')
+  || PERSONS[a].name.localeCompare(PERSONS[b].name,'cs')).join()
 ```
+
+### Shoda příjmení
+
+Nadpis stránky a obsazení průsečíku ukazují u každé osoby příjmení. Když je
+na ose stejné příjmení víckrát, vypsalo by se dvakrát totéž („Okamura × Okamura“).
+Funkce `label(k)` proto vrátí celé jméno místo příjmení, jakmile najde v `ORDER`
+další osobu se stejným příjmením. Nastavovat nebo udržovat se nemusí nic –
+pravidlo se vyhodnocuje z dat.
 
 ## Redakční standard
 
